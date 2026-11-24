@@ -11,6 +11,7 @@ Categorias ativas:
 | Pasta | Uso |
 | --- | --- |
 | `engineering/` | Desenvolvimento de software |
+| `education/` | Aulas visuais de um conceito técnico |
 | `portfolio/` | Carreira, CV, LinkedIn e portfólio |
 
 ## Ignorar `deprecated/`

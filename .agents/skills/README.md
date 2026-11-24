@@ -5,5 +5,6 @@ Skills de agentes organizadas por categoria. Ver o [README raiz](../../README.md
 | Pasta | Propósito |
 | --- | --- |
 | [engineering](./engineering/) | Desenvolvimento |
-| [portfolio](./portfolio/) | Carreira | CV |
+| [education](./education/) | Ensino |
+| [portfolio](./portfolio/) | Carreira, CV |
 | [deprecated](./deprecated/) | Arquivo — não usar |

@@ -13,6 +13,12 @@
       "skillPath": "skills/cover-letter-generator/SKILL.md",
       "computedHash": "fa9e63ab67805746126d1c3ba8693acfe82d9e45378c3b7486d90132740dc7fe"
     },
+    "lesson": {
+      "source": "YudiG12/ganeko-skills",
+      "sourceType": "github",
+      "skillPath": "skills/beta/lesson/SKILL.md",
+      "computedHash": "e3df34ffbf6e4fd76ac799524277cbcbfd003af1a40cb58d32a257f0a6c95179"
+    },
     "resume-ats-optimizer": {
       "source": "paramchoudhary/resumeskills",
       "sourceType": "github",
