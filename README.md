@@ -26,6 +26,26 @@ Cada categoria tem um `README.md` explicando o propósito. Skills ativas têm um
 | [portfolio](.agents/skills/portfolio/) | `summarize-cv`, `git-commits-to-cv`, `cv-md-to-docx`, `cover-letter`, `cover-letter-generator`, `resume-ats-optimizer` (+ stub local `optimize-linkedin` em `portfolio/_/`) |
 | [deprecated](.agents/skills/deprecated/) | Skills antigas (não usar) |
 
+## Instalação (Claude Code e Cursor)
+
+Copia as skills ativas de .agents/skills/ para ~/.claude/skills e ~/.cursor/skills. Seguro para rodar de novo sempre que atualizar o repo.
+
+**Windows (PowerShell):**
+
+`powershell
+.\scripts\install.ps1                         # instala todas para Claude Code e Cursor
+.\scripts\install.ps1 lesson code-review      # instala só skills específicas
+.\scripts\install.ps1 -Agents cursor lesson   # escolhe o agente (claude, cursor)
+`
+
+**WSL / Linux / macOS:**
+
+`sh
+scripts/install.sh                            # instala todas para Claude Code e Cursor
+scripts/install.sh lesson code-review         # instala só skills específicas
+AGENTS=cursor scripts/install.sh lesson       # escolhe o agente (claude, cursor)
+`
+
 ## Como os agentes devem se comportar
 
 Ver [AGENTS.md](./AGENTS.md): carregar só skills ativas; **nunca** usar `deprecated/`.
