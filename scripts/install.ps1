@@ -2,6 +2,11 @@
 .SYNOPSIS
 Copies active skills from skills/ into Claude Code and Cursor user skills folders. Safe to re-run.
 
+.DESCRIPTION
+Discovers promoted category skills (skills/<category>/<skill>), in-progress drafts (skills/in-progress/<skill>),
+and vendored external skills (skills/external/<author>/<skill>), flattening them by skill name into
+~/.claude/skills and ~/.cursor/skills. Skips _/ and deprecated/. Fails on skill name collisions.
+
 .EXAMPLE
 .\scripts\install.ps1
 .\scripts\install.ps1 lesson code-review
@@ -25,14 +30,39 @@ if (-not (Test-Path $SkillsRoot)) {
 }
 
 $Discovered = @{}
-Get-ChildItem -Path $SkillsRoot -Directory | Where-Object { $_.Name -notin @("_") } | ForEach-Object {
+
+function Register-Skill {
+  param(
+    [string]$Name,
+    [string]$Category,
+    [string]$SkillPath
+  )
+  if ($Discovered.ContainsKey($Name)) {
+    $existing = $Discovered[$Name].Path
+    throw "Skill name collision for '$Name': '$existing' conflicts with '$SkillPath'. Rename or exclude one before installing."
+  }
+  $Discovered[$Name] = [PSCustomObject]@{
+    Name     = $Name
+    Category = $Category
+    Path     = $SkillPath
+  }
+}
+
+Get-ChildItem -Path $SkillsRoot -Directory | Where-Object { $_.Name -notin @("_", "deprecated") } | ForEach-Object {
   $category = $_.Name
-  Get-ChildItem -Path $_.FullName -Directory | Where-Object { $_.Name -ne "_" } | ForEach-Object {
-    if (Test-Path (Join-Path $_.FullName "SKILL.md")) {
-      $Discovered[$_.Name] = [PSCustomObject]@{
-        Name     = $_.Name
-        Category = $category
-        Path     = $_.FullName
+  if ($category -eq "external") {
+    Get-ChildItem -Path $_.FullName -Directory | Where-Object { $_.Name -ne "_" } | ForEach-Object {
+      $author = $_.Name
+      Get-ChildItem -Path $_.FullName -Directory | Where-Object { $_.Name -ne "_" } | ForEach-Object {
+        if (Test-Path (Join-Path $_.FullName "SKILL.md")) {
+          Register-Skill -Name $_.Name -Category "external/$author" -SkillPath $_.FullName
+        }
+      }
+    }
+  } else {
+    Get-ChildItem -Path $_.FullName -Directory | Where-Object { $_.Name -ne "_" } | ForEach-Object {
+      if (Test-Path (Join-Path $_.FullName "SKILL.md")) {
+        Register-Skill -Name $_.Name -Category $category -SkillPath $_.FullName
       }
     }
   }
@@ -66,7 +96,7 @@ foreach ($agent in $Agents) {
     if ($LASTEXITCODE -ge 8) {
       throw "Failed to copy '$($skill.Name)' to '$destSkill' (robocopy exit code $LASTEXITCODE)"
     }
-    Write-Output "installed $($skill.Name) -> $destSkill"
+    Write-Output "installed $($skill.Name) ($($skill.Category)) -> $destSkill"
   }
 }
 

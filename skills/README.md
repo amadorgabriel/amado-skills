@@ -1,11 +1,9 @@
 # skills
 
-Catálogo de skills ativas organizadas por categoria. Cada skill tem um `SKILL.md` na própria pasta.
+Catálogo de skills organizadas por bucket. Cada skill tem um `SKILL.md` na própria pasta.
 
-| Categoria | Descrição |
-| --- | --- |
-| [engineering](./engineering/) | Desenvolvimento de software |
-| [education](./education/) | Aulas visuais de um conceito técnico |
-| [job](./job/) | Apresentações e relatórios semanais de trabalho |
-| [portfolio](./portfolio/) | Carreira, currículo, cartas e portfólio |
-| [financial](./financial/) | Finanças pessoais e PJ (em construção) |
+| Bucket | Descrição | Vai no plugin? |
+| --- | --- | --- |
+| [portfolio](./portfolio/) | Carreira, currículo, cartas e portfólio (autorais promovidas) | Sim |
+| [in-progress](./in-progress/) | Rascunhos autorais em validação local | Não |
+| [external](./external/) | Skills de terceiros com licença, `SOURCE.md` e [CREDITS.md](./external/CREDITS.md) | Não |

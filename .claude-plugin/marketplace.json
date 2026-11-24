@@ -1,0 +1,22 @@
+{
+  "name": "amadorgabriel",
+  "owner": {
+    "name": "Gabriel Rodrigues",
+    "url": "https://github.com/amadorgabriel"
+  },
+  "description": "Marketplace pessoal de skills de Gabriel Rodrigues para Claude Code e agentes compatíveis.",
+  "plugins": [
+    {
+      "name": "amado-skills",
+      "source": "./",
+      "description": "Skills autorais promovidas para carreira, currículo, carta de apresentação e ATS.",
+      "category": "productivity",
+      "keywords": [
+        "skills",
+        "portfolio",
+        "career",
+        "cv"
+      ]
+    }
+  ]
+}

@@ -6,6 +6,9 @@ skills/portfolio/_/**
 skills/portfolio/summarize-cv/output/**
 skills/portfolio/cv-md-to-docx/assets/*.docx
 
+# Node dependencies for CI/validation scripts
+node_modules/
+
 # Python bytecode
 **/__pycache__/
 **/*.pyc
