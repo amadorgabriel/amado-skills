@@ -1,6 +1,6 @@
 # amado-skills
 
-Skills reutilizáveis para agentes de IA (Claude Code, Cursor e ferramentas compatíveis), cobrindo engenharia, educação e portfólio.
+Skills reutilizáveis para agentes de IA (Claude Code, Cursor e ferramentas compatíveis), cobrindo engenharia, educação, trabalho, portfólio e finanças.
 
 ## Estrutura
 
@@ -8,7 +8,9 @@ Skills reutilizáveis para agentes de IA (Claude Code, Cursor e ferramentas comp
 skills/
 ├── engineering/   # desenvolvimento de software
 ├── education/     # aulas visuais de um conceito
-└── portfolio/     # carreira, CV, cartas e portfólio
+├── job/           # apresentações e relatórios semanais
+├── portfolio/     # carreira, CV, cartas e portfólio
+└── financial/     # finanças pessoais e PJ (em construção)
 scripts/
 ├── install.ps1    # instalador Windows (PowerShell)
 └── install.sh     # instalador WSL / Linux / macOS
@@ -22,7 +24,9 @@ docs/
 | --- | --- |
 | [engineering](skills/engineering/) | `code-review` (CodeRabbit via WSL) |
 | [education](skills/education/) | `lesson` (aula HTML autocontida de um conceito, adaptada de [ganeko-skills](https://github.com/YudiG12/ganeko-skills)) |
+| [job](skills/job/) | `slide-presentation` (roteiro e deck Marp Markdown com notas de fala), `weekly-report` (e-mail semanal de conquistas e plano, com coleta opcional via git) |
 | [portfolio](skills/portfolio/) | `summarize-cv`, `git-commits-to-cv`, `cv-md-to-docx`, `cover-letter`, `resume-ats-optimizer` |
+| [financial](skills/financial/) | Reservada para futuras skills financeiras |
 
 ## Instalação
 
