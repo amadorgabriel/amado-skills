@@ -1,19 +1,10 @@
-# Current job related files (local-only; not part of the public showcase)
-.agents/skills/_
-.agents/skills/portfolio/_/**
-.agents/rules/_
-.agents/agents/_
-.agents/agents/spott-*.md
-.specs
+# Local-only skills and stubs (not part of the public showcase)
+skills/_
+skills/portfolio/_/**
 
-
-.agents/skills/deprecated/**/
-
-
-# Portfolio personal outputs (gitignored; no README placeholders required)
-.agents/skills/portfolio/summarize-cv/output/**
-.agents/skills/portfolio/optimize-linkedin/output/**
-.agents/skills/portfolio/cv-md-to-docx/assets/*.docx
+# Portfolio personal outputs
+skills/portfolio/summarize-cv/output/**
+skills/portfolio/cv-md-to-docx/assets/*.docx
 
 # Python bytecode
 **/__pycache__/

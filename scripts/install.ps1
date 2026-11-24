@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-Copies active skills from .agents/skills/ into Claude Code and Cursor user skills folders. Safe to re-run.
+Copies active skills from skills/ into Claude Code and Cursor user skills folders. Safe to re-run.
 
 .EXAMPLE
 .\scripts\install.ps1
@@ -18,14 +18,14 @@ param(
 
 $ErrorActionPreference = "Stop"
 $RepoRoot = Split-Path -Parent $PSScriptRoot
-$SkillsRoot = Join-Path $RepoRoot ".agents\skills"
+$SkillsRoot = Join-Path $RepoRoot "skills"
 
 if (-not (Test-Path $SkillsRoot)) {
   throw "Skills directory not found: $SkillsRoot"
 }
 
 $Discovered = @{}
-Get-ChildItem -Path $SkillsRoot -Directory | Where-Object { $_.Name -notin @("deprecated", "_") } | ForEach-Object {
+Get-ChildItem -Path $SkillsRoot -Directory | Where-Object { $_.Name -notin @("_") } | ForEach-Object {
   $category = $_.Name
   Get-ChildItem -Path $_.FullName -Directory | Where-Object { $_.Name -ne "_" } | ForEach-Object {
     if (Test-Path (Join-Path $_.FullName "SKILL.md")) {

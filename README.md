@@ -1,54 +1,53 @@
-# agentic-ai
+# amado-skills
 
-Vitrine das minhas **skills de agentes de IA** — workflows reutilizáveis para Cursor, Claude Code e ferramentas compatíveis.
-
-> **Descrição sugerida (GitHub About):**  
-> Vitrine de skills de agentes de IA: engenharia, educação e portfolio. Workflows reutilizáveis para Cursor/Claude.
+Skills reutilizáveis para agentes de IA (Claude Code, Cursor e ferramentas compatíveis), cobrindo engenharia, educação e portfólio.
 
 ## Estrutura
 
-```
-.agents/skills/
-├── engineering/   # skills de desenvolvimento
+```text
+skills/
+├── engineering/   # desenvolvimento de software
 ├── education/     # aulas visuais de um conceito
-├── portfolio/     # carreira, CV, LinkedIn, portfólio
-└── deprecated/    # arquivo histórico: agentes devem ignorar
+└── portfolio/     # carreira, CV, cartas e portfólio
+scripts/
+├── install.ps1    # instalador Windows (PowerShell)
+└── install.sh     # instalador WSL / Linux / macOS
+docs/
+└── adr/           # decisões de arquitetura do repositório
 ```
 
-Cada categoria tem um `README.md` explicando o propósito. Skills ativas têm um `SKILL.md` na pasta da skill.
+## Skills
 
-## Categorias
-
-| Categoria | O que tem |
+| Categoria | Skills |
 | --- | --- |
-| [engineering](.agents/skills/engineering/) | `code-review` (CodeRabbit via WSL). Spec-driven, grilling, domain modeling e autofix estão em `~/.cursor/skills/` |
-| [education](.agents/skills/education/) | `lesson` (aula HTML de um conceito; origem em `skills-lock.json`) |
-| [portfolio](.agents/skills/portfolio/) | `summarize-cv`, `git-commits-to-cv`, `cv-md-to-docx`, `cover-letter`, `cover-letter-generator`, `resume-ats-optimizer` (+ stub local `optimize-linkedin` em `portfolio/_/`) |
-| [deprecated](.agents/skills/deprecated/) | Skills antigas (não usar) |
+| [engineering](skills/engineering/) | `code-review` (CodeRabbit via WSL) |
+| [education](skills/education/) | `lesson` (aula HTML autocontida de um conceito, adaptada de [ganeko-skills](https://github.com/YudiG12/ganeko-skills)) |
+| [portfolio](skills/portfolio/) | `summarize-cv`, `git-commits-to-cv`, `cv-md-to-docx`, `cover-letter`, `resume-ats-optimizer` |
 
-## Instalação (Claude Code e Cursor)
+## Instalação
 
-Copia as skills ativas de .agents/skills/ para ~/.claude/skills e ~/.cursor/skills. Seguro para rodar de novo sempre que atualizar o repo.
+Os scripts copiam todas as skills ativas de `skills/` para `~/.claude/skills` e `~/.cursor/skills`, deixando elas disponíveis em qualquer projeto. É seguro rodar de novo sempre que atualizar o repositório.
 
 **Windows (PowerShell):**
 
-`powershell
+```powershell
 .\scripts\install.ps1                         # instala todas para Claude Code e Cursor
 .\scripts\install.ps1 lesson code-review      # instala só skills específicas
 .\scripts\install.ps1 -Agents cursor lesson   # escolhe o agente (claude, cursor)
-`
+```
 
 **WSL / Linux / macOS:**
 
-`sh
+```sh
 scripts/install.sh                            # instala todas para Claude Code e Cursor
 scripts/install.sh lesson code-review         # instala só skills específicas
 AGENTS=cursor scripts/install.sh lesson       # escolhe o agente (claude, cursor)
-`
+```
 
-## Como os agentes devem se comportar
+## Regras e decisões
 
-Ver [AGENTS.md](./AGENTS.md): carregar só skills ativas; **nunca** usar `deprecated/`.
+- [AGENTS.md](./AGENTS.md) (referenciado por [CLAUDE.md](./CLAUDE.md)): regras agnósticas de agente para trabalhar neste repositório, incluindo a política de estilo sem travessão.
+- [docs/adr/](./docs/adr/): registro curto das decisões de estrutura e instalação.
 
 ## Licença
 

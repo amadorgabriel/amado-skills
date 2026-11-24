@@ -1,39 +1,43 @@
 # AGENTS
 
-Regras para agentes que trabalham neste repositório.
+Regras para qualquer agente de IA (Claude Code, Cursor e ferramentas compatíveis) trabalhando neste repositório.
 
 ## Onde vivem as skills
 
-Skills ativas ficam em `.agents/skills/<categoria>/<nome-da-skill>/SKILL.md`.
-
-Categorias ativas:
+As skills versionadas ficam em `skills/<categoria>/<nome-da-skill>/SKILL.md`:
 
 | Pasta | Uso |
 | --- | --- |
-| `engineering/` | Desenvolvimento de software |
-| `education/` | Aulas visuais de um conceito técnico |
-| `portfolio/` | Carreira, CV, LinkedIn e portfólio |
+| `skills/engineering/` | Desenvolvimento de software |
+| `skills/education/` | Aulas visuais de um conceito técnico |
+| `skills/portfolio/` | Carreira, CV, LinkedIn e portfólio |
 
-## Ignorar `deprecated/`
+Os scripts em `scripts/` copiam essas skills para `~/.claude/skills` e `~/.cursor/skills`, onde Claude Code e Cursor carregam as skills globalmente em qualquer projeto.
 
-**Nunca carregue, sugira ou execute skills em `.agents/skills/deprecated/`.**
+- Skills sob `_/` (gitignored) são locais e não fazem parte da vitrine pública.
+- Outputs pessoais de carreira em `skills/portfolio/summarize-cv/output/` e templates `.docx` em `skills/portfolio/cv-md-to-docx/assets/` são gitignored.
 
-Essa pasta é só arquivo histórico. Os manifests foram renomeados de `SKILL.md` para `ARCHIVED.md` de propósito, para os agentes não descobrirem essas skills automaticamente.
+## Skills pessoais de engenharia fora do repo
 
-## Skills pessoais de engenharia
+Estas skills ficam apenas localmente em `~/.cursor/skills/` (ou `~/.claude/skills/`): `grilling`, `domain-modeling`, `grill-with-docs`, `tlc-spec-driven` e `autofix`. `code-review` continua versionada em `skills/engineering/`.
 
-Estas skills não estão mais neste repositório. Ficam em `~/.cursor/skills/` e valem em qualquer projeto:
+## Regra de estilo: sem travessão (em-dash)
 
-- `grilling`
-- `domain-modeling`
-- `grill-with-docs`
-- `tlc-spec-driven`
-- `autofix`
+Nunca use o caractere travessão (U+2014) em nenhum conteúdo gerado: documentos, currículos, cover letters, textos de LinkedIn, comentários de código, mensagens de commit ou respostas no chat.
 
-`code-review` continua em `.agents/skills/engineering/`.
+Motivo: travessão em texto corrido é percebido como marca de conteúdo gerado por IA.
 
-## Descoberta
+### Como substituir
 
-- Cursor / Claude Code / ferramentas compatíveis varrem `.agents/skills/**/SKILL.md`.
-- Skills sob `_/` (gitignored) são locais ao job atual e não fazem parte da vitrine pública.
-- Outputs pessoais de carreira em `portfolio/<skill>/output/` e stubs locais em `portfolio/_/` são gitignored.
+- Pausa ou aposto explicativo: use vírgula, dois-pontos, ponto e vírgula ou parênteses.
+  - Ruim: `Entreguei o projeto [travessão] com todas as métricas [travessão] no prazo`
+  - Bom: `Entreguei o projeto, com todas as métricas, no prazo`
+- Separação empresa/cidade em CV: use vírgula (`Spott, São Paulo, Brasil`).
+- Rótulo de projeto em CV: use dois-pontos (`Projeto QES: liderei...`).
+- Seta em texto corrido: escreva por extenso (`KingHost para AWS`).
+
+### Exceções permitidas
+
+- En-dash (U+2013) somente em intervalos de datas e faixas numéricas: `2023–2026`, `70–90 mil`.
+- Citação literal de texto de terceiros.
+- Código que exija o caractere por restrição técnica (por exemplo, entidade HTML `&mdash;` com motivo documentado).
