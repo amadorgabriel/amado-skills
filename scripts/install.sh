@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
-# Copies active skills from .agents/skills/ into Claude Code and Cursor user skills folders. Safe to re-run.
+# Copies active skills from skills/ into Claude Code and Cursor user skills folders. Safe to re-run.
 # usage:
 #   scripts/install.sh [skill ...]
 #   AGENTS=cursor scripts/install.sh lesson
 set -euo pipefail
 
 R="$(cd "$(dirname "$0")/.." && pwd)"
-SKILLS_ROOT="$R/.agents/skills"
+SKILLS_ROOT="$R/skills"
 AGENTS_CSV="${AGENTS:-claude,cursor}"
 
 declare -A SKILL_PATHS=()
 for category_dir in "$SKILLS_ROOT"/*; do
   [ -d "$category_dir" ] || continue
   category="$(basename "$category_dir")"
-  case "$category" in deprecated|_) continue ;; esac
+  case "$category" in _) continue ;; esac
   for skill_dir in "$category_dir"/*; do
     [ -d "$skill_dir" ] || continue
     name="$(basename "$skill_dir")"
