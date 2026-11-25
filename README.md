@@ -14,8 +14,7 @@ skills/
 └── external/              # skills de terceiros organizadas por autor + CREDITS.md
 scripts/
 ├── install.ps1            # instalador completo Windows (PowerShell)
-├── install.sh             # instalador completo WSL / Linux / macOS
-└── check-frontmatter.mjs  # validação de YAML frontmatter e plugin.json
+└── install.sh             # instalador completo WSL / Linux / macOS
 docs/
 ├── adr/                   # decisões de arquitetura do repositório
 ├── portfolio/             # documentação humana por skill promovida

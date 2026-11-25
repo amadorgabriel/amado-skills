@@ -10,7 +10,7 @@ As skills versionadas ficam organizadas em três buckets sob `skills/`:
 | --- | --- | --- | --- |
 | `skills/portfolio/` | Carreira, CV, cartas e portfólio (skills autorais promovidas) | Sim | Sim |
 | `skills/in-progress/` | Rascunhos autorais em validação no uso diário | Sim | Não |
-| `skills/external/<autor>/<skill>/` | Skills de terceiros mantidas com `LICENSE` e `SOURCE.md` | Sim | Não |
+| `skills/external/<autor>/<skill>/` | Skills de terceiros com crédito em `SOURCE.md` | Sim | Não |
 
 Os scripts em `scripts/` (`install.ps1` e `install.sh`) copiam todas as skills ativas (`portfolio/`, `in-progress/` e `external/`) de forma achatada para `~/.claude/skills` e `~/.cursor/skills`, e falham em caso de colisão de nome.
 
@@ -25,7 +25,6 @@ Antes de criar uma nova skill, editar um `SKILL.md` ou atualizar `AGENTS.md`:
 
 - Leia o guia de manutenção do repositório em [docs/writing-skills.md](./docs/writing-skills.md).
 - Consulte a referência vendored [skills/external/mattpocock/writing-for-agents/SKILL.md](./skills/external/mattpocock/writing-for-agents/SKILL.md) e [SKILL-MECHANICS.md](./skills/external/mattpocock/writing-for-agents/SKILL-MECHANICS.md).
-- Ao rodar alterações em `SKILL.md` ou `.claude-plugin/`, valide com `npm run check-frontmatter`.
 
 ## Skills pessoais de engenharia fora do repo
 

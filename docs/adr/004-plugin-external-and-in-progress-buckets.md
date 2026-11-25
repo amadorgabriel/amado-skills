@@ -10,7 +10,7 @@ Com a adoção de skills de terceiros (`lesson`, `code-review`, `writing-for-age
 ## Decisão
 
 1. **Plugin autocontido em `.claude-plugin/`:** publicar `plugin.json` (`amado-skills`) e `marketplace.json` (`amadorgabriel`) listando explicitamente apenas as skills autorais promovidas (atualmente `skills/portfolio/*`).
-2. **Bucket `skills/external/<autor>/<skill>/`:** centralizar skills de terceiros com `LICENSE`, `SOURCE.md` e tabela em `skills/external/CREDITS.md`. Os scripts em `scripts/` instalam essas skills localmente e falham em caso de colisão de nome, enquanto o plugin as deixa de fora.
+2. **Bucket `skills/external/<autor>/<skill>/`:** centralizar skills de terceiros com um `SOURCE.md` curto e uma lista em `skills/external/CREDITS.md`. Os scripts em `scripts/` instalam essas skills localmente e falham em caso de colisão de nome, enquanto o plugin as deixa de fora.
 3. **Bucket `skills/in-progress/`:** guardar rascunhos autorais em iteração. Eles são instalados localmente pelos scripts para uso diário, mas ficam fora de `.claude-plugin/plugin.json`, da vitrine do `README.md` e de `docs/` até graduarem.
 4. **Remoção de buckets vazios:** categorias sem skills (`education/`, `engineering/`, `financial/`, `job/`) são removidas em vez de mantidas com `.gitkeep`.
 

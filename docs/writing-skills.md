@@ -15,7 +15,7 @@ disable-model-invocation: true # inclua quando for apenas por chamada explícita
 ---
 ```
 
-- **Frontmatter obrigatório:** `name` e `description` como strings válidas em YAML. O script `npm run check-frontmatter` valida todas as skills e garante que `name` bate com o nome da pasta.
+- **Frontmatter obrigatório:** `name` e `description` como strings válidas em YAML, com `name` idêntico ao nome da pasta da skill.
 - **Arquivos irmãos:** coloque referências extensas, templates ou estilos em arquivos separados (`STYLE.md`, `references/`, `scripts/`) e aponte para eles a partir de `SKILL.md`, carregando apenas quando o fluxo precisar.
 - **Estilo:** siga a regra sem travessão (U+2014) definida em [AGENTS.md](../AGENTS.md).
 
@@ -35,7 +35,7 @@ disable-model-invocation: true # inclua quando for apenas por chamada explícita
 | `skills/external/<autor>/<skill>/` | Skill mantida de terceiros | Sim | Não |
 | `skills/_/` (gitignored) | Rascunho privado só da máquina local | Não | Não |
 
-Para skills externas, inclua sempre o `LICENSE` original, um `SOURCE.md` (repositório, caminho upstream, commit ou hash e adaptações) e uma entrada em [skills/external/CREDITS.md](../skills/external/CREDITS.md).
+Para skills externas, inclua um `SOURCE.md` curto (descrição e link da origem) e uma entrada em [skills/external/CREDITS.md](../skills/external/CREDITS.md).
 
 ## Documentação por skill promovida
 
@@ -52,4 +52,4 @@ Toda skill promovida em `skills/<categoria>/<skill>/` deve ter uma página human
 2. Adicionar `"./skills/<categoria>/<skill>"` em `.claude-plugin/plugin.json`.
 3. Criar `docs/<categoria>/<skill>.md` com as quatro seções acima.
 4. Listar a skill no grupo correto (**Usuário** ou **Modelo**) em `README.md` e `skills/<categoria>/README.md`, com link para `SKILL.md` e para a doc.
-5. Remover a linha de `skills/in-progress/README.md`, rodar `npm run check-frontmatter` e reexecutar o instalador local.
+5. Remover a linha de `skills/in-progress/README.md` e reexecutar o instalador local.
