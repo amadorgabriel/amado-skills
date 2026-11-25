@@ -4,14 +4,17 @@ Contract between `diary` (writer) and `/report` (reader). Keep frontmatter keys,
 
 ## Rules
 
-- File: `~/.diary/YYYY-MM-DD.md`, one per day.
+- File: `~/.diary/YYYY-MM-DD.md`, one per day. Content follows the `privacy-guardrail` skill.
 - `sessions`: one string per run, `"HH:MM <project>@<branch>"`.
-- `projects`: repo folder names, same spelling as the `## <project>` headings.
-- `people`: `"Nome (papel)"`, as confirmed by the user.
+- `projects`: project names or aliases, same spelling as the `## <project>` headings.
+- `roles`: `"Cargo (time)"`, never a person's name.
 - `tags`: 1 to 5 lowercase topics (ex.: `auth`, `infra`, `docs`).
+- Recap: 2 to 4 sentences right after the title, saying what the day was about and its main outcome. No bullets.
+- `## Sumário`: one link per `##` section, in order, using GitHub anchors (lowercase, spaces as `-`, punctuation dropped).
 - One `## <project>` section per project, with all four `###` subsections; write `- Nada registrado.` when one is empty.
-- `## Carreira (STAR/XYZ)` and `## Próximos passos` appear once, after all project sections.
+- `## Carreira (STAR/XYZ)` and `## Próximos passos` appear once, after all project sections. `## Notas adicionais` only when the user added free text that fits nowhere else.
 - Next steps: `- [ ] (<project>) <ação>`, plus `(desde YYYY-MM-DD)` when carried over.
+- Changes: PRs as `PR #n`, commits as short hashes, no URLs.
 
 ## Template
 
@@ -21,10 +24,18 @@ date: 2026-11-25
 sessions:
   - "15:47 amado-skills@feat/diary-skill"
 projects: [amado-skills]
-people: ["Fulano (PM, alinhamento)", "Ciclano (code review)"]
+roles: ["PO (time de pagamentos)", "dev sênior (time de plataforma)"]
 tags: [skills, docs]
 ---
 # Diário, 25/11/2026
+
+Dia dedicado a estruturar o registro diário de trabalho no repositório de skills. A skill `diary` foi criada e passou a anonimizar pessoas e empresas, o que prepara o terreno para o relatório semanal.
+
+## Sumário
+
+- [amado-skills](#amado-skills)
+- [Carreira (STAR/XYZ)](#carreira-starxyz)
+- [Próximos passos](#próximos-passos)
 
 ## amado-skills
 
@@ -39,10 +50,10 @@ tags: [skills, docs]
 ### O que alterei
 - `skills/in-progress/diary/SKILL.md` (novo)
 - Commit `abc1234`: Add diary skill
-- PR: https://github.com/<owner>/<repo>/pull/<n>
+- PR #9
 
 ### Com quem
-- Fulano: alinhamos o escopo do relatório semanal.
+- PO do time de pagamentos: alinhamos o escopo do relatório semanal.
 
 ## Carreira (STAR/XYZ)
 
