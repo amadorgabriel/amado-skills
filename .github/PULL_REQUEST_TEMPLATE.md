@@ -18,8 +18,10 @@
 - [ ] Frontmatter: `name` é igual ao nome da pasta
 - [ ] Frontmatter: `description` diz o que a skill faz e quando usar
 - [ ] `disable-model-invocation: true` quando a skill for apenas por invocação explícita
-- [ ] Doc humana em `docs/<bucket>/<skill>.md` (promovida) ou `docs/in-progress/<skill>.md` (em validação)
-- [ ] `.claude-plugin/plugin.json` atualizado se a skill for promovida
-- [ ] `README.md` e o catálogo do bucket atualizados
+- [ ] Doc humana em `docs/<plugin>/<skill>.md` (publicada) ou `docs/in-progress/<skill>.md` (em validação)
+- [ ] Plugin alterado: `version` nos dois `plugin.json`, e os dois `marketplace.json` atualizados se um plugin entrou ou saiu
+- [ ] `claude plugin validate .` passa
+- [ ] Nenhum dado pessoal nem link para fora do plugin dentro de `plugins/`
+- [ ] `README.md` da raiz e do plugin (ou do bucket) atualizados
 - [ ] Nenhum travessão (U+2014)
 - [ ] Testado com `scripts/install.ps1` ou `scripts/install.sh`

@@ -4,19 +4,23 @@
     "name": "Gabriel Rodrigues",
     "url": "https://github.com/amadorgabriel"
   },
-  "description": "Marketplace pessoal de skills de Gabriel Rodrigues para Claude Code e agentes compatíveis.",
+  "metadata": {
+    "description": "Marketplace pessoal de plugins de Gabriel Rodrigues para Claude Code e Cursor."
+  },
   "plugins": [
     {
-      "name": "amado-skills",
-      "source": "./",
-      "description": "Skills autorais promovidas para carreira, currículo, carta de apresentação e ATS.",
+      "name": "diary",
+      "source": "./plugins/diary",
+      "description": "Diário de trabalho anonimizado a partir das sessões do agente (skills diary e privacy-guardrail).",
       "category": "productivity",
-      "keywords": [
-        "skills",
-        "portfolio",
-        "career",
-        "cv"
-      ]
+      "keywords": ["diary", "journal", "privacy"]
+    },
+    {
+      "name": "job",
+      "source": "./plugins/job",
+      "description": "Busca de emprego: pipeline de CV, commits para CV, exportação Word, cover letter e ATS.",
+      "category": "productivity",
+      "keywords": ["career", "cv", "resume", "cover-letter", "ats"]
     }
   ]
 }

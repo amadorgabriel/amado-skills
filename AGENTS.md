@@ -4,19 +4,19 @@ Regras para qualquer agente de IA (Claude Code, Cursor e ferramentas compatívei
 
 ## Onde vivem as skills
 
-As skills versionadas ficam organizadas em dois buckets sob `skills/`:
+O repositório é um marketplace de plugins para Claude Code (`.claude-plugin/marketplace.json`) e Cursor (`.cursor-plugin/marketplace.json`):
 
-| Pasta | Uso | Instalada localmente? | No plugin / vitrine? |
-| --- | --- | --- | --- |
-| `skills/in-progress/` | Rascunhos autorais em validação no uso diário | Sim | Não |
-| `skills/external/<autor>/<skill>/` | Cópias congeladas de skills de terceiros, organizadas por autor | Sim | Não |
+| Pasta | Uso | Exportada em plugin? |
+| --- | --- | --- |
+| `plugins/<plugin>/skills/<skill>/` | Skills autorais publicadas (`diary`, `job`) | Sim |
+| `skills/in-progress/<skill>/` | Rascunhos autorais ainda fora de plugins | Não |
+| `skills/external/<autor>/<skill>/` | Cópias congeladas de skills de terceiros, por autor | Nunca |
 
-Os scripts em `scripts/` (`install.ps1` e `install.sh`) copiam todas as skills ativas (`in-progress/` e `external/`) de forma achatada para `~/.claude/skills` e `~/.cursor/skills`, e falham em caso de colisão de nome.
-
-O plugin do Claude Code em `.claude-plugin/plugin.json` existe, mas o array `skills` está vazio: ainda não há skills autorais promovidas. Use os scripts de instalação para disponibilizar as skills nos agentes.
-
+- Cada plugin é autocontido: `.claude-plugin/plugin.json`, `.cursor-plugin/plugin.json` e `skills/`. Links entre skills só valem dentro do mesmo plugin (sem `..` para fora dele).
+- Ao adicionar ou remover um plugin, atualize os dois `marketplace.json` e valide com `claude plugin validate .`.
+- Dados pessoais nunca ficam dentro de um plugin: `diary` grava em `~/.diary/`, `job` em `~/.job/` (`JOB_DATA_DIR`).
+- Os scripts em `scripts/` copiam os plugins para `~/.cursor/plugins/local/` e as skills soltas (`in-progress/` e `external/`) para `~/.claude/skills` e `~/.cursor/skills`, falhando em colisão de nome.
 - Skills sob `_/` (gitignored) são locais e não fazem parte do repositório nem dos scripts de instalação.
-- Outputs pessoais de carreira em `skills/in-progress/summarize-cv/output/` e templates `.docx` em `skills/in-progress/cv-md-to-docx/assets/` são gitignored.
 
 ## Como criar ou editar skills e documentação
 

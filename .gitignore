@@ -2,9 +2,9 @@
 skills/_
 skills/in-progress/_/**
 
-# Personal career outputs
-skills/in-progress/summarize-cv/output/**
-skills/in-progress/cv-md-to-docx/assets/*.docx
+# Personal data that must never be committed (skills write to ~/.job and ~/.diary)
+**/output/
+*.docx
 
 # Python bytecode
 **/__pycache__/
