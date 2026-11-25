@@ -2,9 +2,9 @@
 
 ## O que faz
 
-Registra o dia de trabalho em `~/.diary/AAAA-MM-DD.md` a partir da sessão atual do agente: o que você alcançou, desafios e soluções, o que alterou em cada projeto, com quem trabalhou, notas de carreira no formato STAR/XYZ e próximos passos.
+Registra o dia de trabalho a partir da sessão atual do agente em dois arquivos: `~/.diary/AAAA-MM-DD.md` (a fonte, lida pelo futuro `/report`) e `~/.diary/AAAA-MM-DD.html` (versão para leitura, autocontida). O conteúdo traz um recap do dia, um sumário com links e as seções: o que alcancei, desafios e soluções, o que alterei em cada projeto, com quem, carreira (STAR/XYZ) e próximos passos.
 
-É um arquivo por dia, fora de qualquer repositório. Rodar de novo no mesmo dia, mesmo em outro projeto, complementa o arquivo em vez de sobrescrever. Inspirada no [claude-diary](https://github.com/rlancemartin/claude-diary), mas focada no seu registro, não na memória do agente.
+O diário é anonimizado pela skill [privacy-guardrail](./privacy-guardrail.md): pessoas aparecem como cargo e time, empresas como descrição genérica, sem dados pessoais da LGPD. Rodar de novo no mesmo dia complementa os arquivos em vez de sobrescrever. Inspirada no [claude-diary](https://github.com/rlancemartin/claude-diary), mas focada no seu registro, não na memória do agente.
 
 ## Quando usar
 
@@ -16,10 +16,10 @@ Registra o dia de trabalho em `~/.diary/AAAA-MM-DD.md` a partir da sessão atual
 ## Dúvidas comuns
 
 **Por que os diários ficam em `~/.diary/` e não no repositório?**
-Eles têm nomes de pessoas e detalhes de trabalho, e precisam juntar sessões de vários projetos e ferramentas (Cursor, Claude Code) no mesmo dia.
+Eles precisam juntar sessões de vários projetos e ferramentas (Cursor, Claude Code) no mesmo dia, e ficam fora de qualquer versionamento.
 
-**Como ela sabe com quem trabalhei?**
-Sugere nomes que apareceram na sessão e nos commits e pede sua confirmação. Reuniões fora da sessão entram pelas notas extras.
+**Como ela registra com quem trabalhei sem citar nomes?**
+Usa cargos e times ("PO do time de pagamentos"). Quando aparece um nome sem cargo conhecido, ela pergunta e guarda a resposta em `~/.diary/.aliases.md`, um mapa local que nunca é copiado para o diário.
 
 **E se eu não souber a métrica de uma conquista?**
 Fica `[MÉTRICA A CONFIRMAR]` no texto, listado no final da execução para você completar depois.
@@ -27,9 +27,13 @@ Fica `[MÉTRICA A CONFIRMAR]` no texto, listado no final da execução para voc�
 **O que acontece com o que deixei em aberto ontem?**
 A skill lê os próximos passos do último diário: o que foi resolvido vira conquista do dia, o que segue aberto é carregado com `(desde AAAA-MM-DD)`. Diários antigos não são alterados.
 
+**Posso acrescentar algo que não aconteceu na sessão?**
+Sim. Passe notas como argumento (`/diary reunião de planejamento à tarde`) ou responda à pergunta final, que sempre pergunta se você quer adicionar mais alguma informação.
+
 ## Está funcionando se
 
-- Existe um único arquivo por dia em `~/.diary/`, com frontmatter `date`, `sessions`, `projects`, `people` e `tags`.
-- Cada projeto tem sua seção com conquistas, pares de desafio e solução, alterações (arquivos, commits, PRs) e pessoas.
+- Existe um par `.md` e `.html` por dia em `~/.diary/`, com frontmatter `date`, `sessions`, `projects`, `roles` e `tags` no `.md`.
+- Logo após o título há um recap curto e um sumário com links para todas as seções.
+- Nenhum nome de pessoa, empresa, URL de PR ou dado pessoal aparece nos arquivos.
 - A seção de carreira traz XYZ com STAR, sem números inventados.
-- Os próximos passos são checkboxes marcados com o projeto.
+- A execução termina perguntando se você quer adicionar mais alguma informação.
