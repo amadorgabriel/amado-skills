@@ -16,6 +16,7 @@ Rascunhos e skills em fase de validação no uso diário.
 | [`git-commits-to-cv`](./git-commits-to-cv/SKILL.md) | Commits convertidos em artefatos em `summarize-cv/output/experience/` | [doc](../../docs/in-progress/git-commits-to-cv.md) |
 | [`cv-md-to-docx`](./cv-md-to-docx/SKILL.md) | Master/Tailored MD para Word `.docx` (template em `assets/`) | [doc](../../docs/in-progress/cv-md-to-docx.md) |
 | [`weekly-report`](./weekly-report/SKILL.md) | E-mail semanal pronto para copiar, com conquistas (impacto), impedimentos e plano da próxima semana | |
+| [`diary`](./diary/SKILL.md) | Diário em `~/.diary/AAAA-MM-DD.md`: conquistas, desafios e soluções, alterações por projeto, pessoas, STAR/XYZ e próximos passos | [doc](../../docs/in-progress/diary.md) |
 
 ## Invocação automática (modelo)
 
