@@ -19,8 +19,15 @@ scripts/
 docs/
 ├── adr/                   # decisões de arquitetura do repositório
 ├── portfolio/             # documentação humana por skill promovida
+├── README.md             # onde ficam as skills vs as docs humanas
 └── writing-skills.md      # guia de autoria e promoção de skills
 ```
+
+## Onde ficam as skills e as docs
+
+A fonte de cada skill (o `SKILL.md` que o agente executa) vive em `skills/<bucket>/...`: `skills/portfolio/` para skills autorais promovidas, `skills/in-progress/` para rascunhos e `skills/external/<autor>/<skill>/` para skills de terceiros.
+
+As páginas humanas em `docs/<categoria>/<skill>.md` existem **somente** para skills promovidas (hoje, [docs/portfolio/](docs/portfolio/)). Skills em `external/` e `in-progress/` não têm página em `docs/` até graduarem. Veja também [docs/README.md](docs/README.md).
 
 ## Skills promovidas (`skills/portfolio/`)
 
@@ -48,7 +55,7 @@ O agente pode acionar automaticamente quando o pedido se encaixa, ou você pode 
 ## Outros buckets
 
 - **Skills externas ([skills/external/](skills/external/)):** `code-review` (CodeRabbit AI), `lesson` (YudiG12) e `writing-for-agents` (Matt Pocock). Instaladas localmente pelos scripts de cópia, fora do plugin, com licenças e atribuição em [CREDITS.md](skills/external/CREDITS.md).
-- **Em progresso ([skills/in-progress/](skills/in-progress/)):** rascunhos como `slide-presentation` e `weekly-report`, instalados localmente para uso diário até graduarem para a vitrine.
+- **Em progresso ([skills/in-progress/](skills/in-progress/)):** rascunhos como `weekly-report`, instalados localmente para uso diário até graduarem para a vitrine.
 
 ## Instalação
 

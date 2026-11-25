@@ -5,7 +5,7 @@
 
 ## Contexto
 
-Com a adoção de skills de terceiros (`lesson`, `code-review`, `writing-for-agents`) e rascunhos em teste (`slide-presentation`, `weekly-report`), misturar tudo nas mesmas pastas de categoria dificulta manter créditos, separa mal o que já está maduro e impede distribuir o repositório como plugin limpo do Claude Code sem redistribuir trabalho de terceiros ou rascunhos instáveis.
+Com a adoção de skills de terceiros (`lesson`, `code-review`, `writing-for-agents`) e rascunhos em teste (`weekly-report`), misturar tudo nas mesmas pastas de categoria dificulta manter créditos, separa mal o que já está maduro e impede distribuir o repositório como plugin limpo do Claude Code sem redistribuir trabalho de terceiros ou rascunhos instáveis.
 
 ## Decisão
 

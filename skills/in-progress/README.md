@@ -11,5 +11,4 @@ Rascunhos e skills em fase de validação no uso diário.
 
 | Skill | Invocação | Papel |
 | --- | --- | --- |
-| [`slide-presentation`](./slide-presentation/SKILL.md) | Usuário (`disable-model-invocation: true`) | Transforma um tema em roteiro e deck Marp Markdown (ou HTML/outline) com títulos de ação e notas de fala |
 | [`weekly-report`](./weekly-report/SKILL.md) | Usuário (`disable-model-invocation: true`) | Redige e-mail semanal pronto para copiar com conquistas (impacto), impedimentos e plano da próxima semana (com coleta opcional via `git log`) |
