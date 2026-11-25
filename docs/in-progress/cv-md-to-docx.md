@@ -15,13 +15,13 @@ Ela preserva a estrutura tipográfica do modelo (seções, estilos e numeração
 ## Dúvidas comuns
 
 **Por que os arquivos `.docx` de template não aparecem no GitHub?**
-Os templates pessoais (`master_cv_pt_template.docx` e `master_cv_en_template.docx`) ficam em `skills/portfolio/cv-md-to-docx/assets/` e são gitignored para não versionar layout nem dados privados.
+Os templates pessoais (`master_cv_pt_template.docx` e `master_cv_en_template.docx`) ficam em `skills/in-progress/cv-md-to-docx/assets/` e são gitignored para não versionar layout nem dados privados.
 
 **A saída é `.docx` ou `.docm`?**
 Sempre `.docx` (sem macros), na mesma pasta e com o mesmo nome base do Markdown de entrada, selecionando automaticamente o template PT ou EN conforme o idioma do arquivo.
 
 **Precisa de alguma dependência Python?**
-Sim: `python-docx`, listada em `skills/portfolio/cv-md-to-docx/scripts/requirements.txt`.
+Sim: `python-docx`, listada em `skills/in-progress/cv-md-to-docx/scripts/requirements.txt`.
 
 ## Está funcionando se
 

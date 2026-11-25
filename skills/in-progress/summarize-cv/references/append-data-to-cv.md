@@ -14,8 +14,8 @@ Fonte: [dictionary/cv/CONTEXT.md](../dictionary/cv/CONTEXT.md) (Resolved 12). Te
 
 | Papel | Path |
 | --- | --- |
-| Career Inbox (raw) | `skills/portfolio/summarize-cv/output/inbox/` |
-| Experience Memory | `skills/portfolio/summarize-cv/output/experience/<company-slug>/<project-slug>.md` |
+| Career Inbox (raw) | `skills/in-progress/summarize-cv/output/inbox/` |
+| Experience Memory | `skills/in-progress/summarize-cv/output/experience/<company-slug>/<project-slug>.md` |
 
 Inbox é **gitignored** (PII). Nunca tratar inbox como experiência canônica para Consolidation.
 
@@ -63,7 +63,7 @@ notes: …
 ---
 ```
 
-**Não** normalizar LinkedIn Profile Snapshot neste módulo. Se o material for claramente perfil LinkedIn, aterrar no inbox e apontar para o stub local **`portfolio/_/optimize-linkedin`** — não inventar Snapshot completo aqui.
+**Não** normalizar LinkedIn Profile Snapshot neste módulo. Se o material for claramente perfil LinkedIn, aterrar no inbox e apontar para o stub local **`in-progress/_/optimize-linkedin`** — não inventar Snapshot completo aqui.
 
 ## Passo 3 — Escolher Artefact Source
 

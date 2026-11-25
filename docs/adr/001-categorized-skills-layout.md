@@ -15,3 +15,7 @@ Usar `skills/<categoria>/<nome>/SKILL.md` na raiz do repositório, agrupando por
 
 - Estrutura visível e fácil de navegar no GitHub.
 - Os scripts de instalação achatam `<categoria>/<nome>` ao copiar para `~/.claude/skills/<nome>` e `~/.cursor/skills/<nome>`.
+
+## Nota (2026-11-24)
+
+O bucket `skills/portfolio/` deixou de existir. As skills de carreira e currículo passaram para `skills/in-progress/` até haver um conjunto autoral promovido. A regra de organizar em `skills/<categoria>/<nome>/` continua válida.

@@ -13,7 +13,7 @@ disable-model-invocation: true
 
 CV pipeline skill: goals → append → git experience → consolidation → job adapt.
 
-Categoria: **portfolio** — ver [README da categoria](../README.md).
+Categoria: **in-progress** — ver [README da categoria](../README.md).
 
 Sibling skills (invoke separately; do **not** run their work here):
 
@@ -21,7 +21,7 @@ Sibling skills (invoke separately; do **not** run their work here):
 - [`cv-md-to-docx`](../cv-md-to-docx/SKILL.md) — Master/Tailored MD → Word `.docx` pronto para envio
 - [`cover-letter`](../cover-letter/SKILL.md) — carta de apresentação para uma vaga
 - [`resume-ats-optimizer`](../resume-ats-optimizer/SKILL.md) — compatibilidade ATS e keywords
-- [`optimize-linkedin`](_/optimize-linkedin/SKILL.md) — stub local em `portfolio/_/` (gitignored)
+- [`optimize-linkedin`](_/optimize-linkedin/SKILL.md) — stub local em `in-progress/_/` (gitignored)
 
 ## Domain sources
 
@@ -44,7 +44,7 @@ Only on **explicit** invoke (`disable-model-invocation: true`).
 | Adapt CV to a job / JD | **adapt-cv-to-job** → [references/adapt-cv-to-job.md](references/adapt-cv-to-job.md) |
 | Export CV to Word / DOCX | **Do not execute here** — invoke sibling [`cv-md-to-docx`](../cv-md-to-docx/SKILL.md) |
 | goals / append / consolidate / git extract (explicit) | Matching reference module or sibling skill |
-| LinkedIn | **Do not execute here** — invoke stub `portfolio/_/optimize-linkedin` |
+| LinkedIn | **Do not execute here** — invoke stub `in-progress/_/optimize-linkedin` |
 | Cover letter | **Do not execute here** — invoke [`cover-letter`](../cover-letter/SKILL.md) |
 | ATS / keyword match | **Do not execute here** — invoke [`resume-ats-optimizer`](../resume-ats-optimizer/SKILL.md) |
 | Unclear | Ask what they want (CV path only); do **not** assume Pipeline A |
@@ -75,7 +75,7 @@ Skip steps already done / not applicable. Detail: [references/cv-happy-path.md](
 ## Summarize CV Output Root
 
 ```
-skills/portfolio/summarize-cv/output/
+skills/in-progress/summarize-cv/output/
 ```
 
 | Path | Role |
@@ -106,7 +106,7 @@ When `output/goals.md` is missing:
 | --- | --- | --- |
 | Sibling skill | [`git-commits-to-cv`](../git-commits-to-cv/SKILL.md) | Commits → Hybrid Artefacts (`source: git`) |
 | Sibling skill | [`cv-md-to-docx`](../cv-md-to-docx/SKILL.md) | MD masters/tailored → `.docx` |
-| Sibling skill (local) | `portfolio/_/optimize-linkedin` | LinkedIn (stub, gitignored) |
+| Sibling skill (local) | `in-progress/_/optimize-linkedin` | LinkedIn (stub, gitignored) |
 | Sibling skill | [`cover-letter`](../cover-letter/SKILL.md) | Carta de apresentação |
 | Sibling skill | [`resume-ats-optimizer`](../resume-ats-optimizer/SKILL.md) | ATS e keywords |
 | Reference | [goals-intake](references/goals-intake.md) | → `output/goals.md` |

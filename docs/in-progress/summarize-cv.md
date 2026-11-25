@@ -24,7 +24,7 @@ Sua restrição central é a fidelidade factual: nenhum número ou métrica entr
 Não. Etapas pesadas (varredura de repositórios git e reescrita de `master_cv.md` / `master_cv.en.md`) exigem confirmação explícita antes de executar.
 
 **Onde os arquivos gerados são gravados?**
-Tudo vai para `skills/portfolio/summarize-cv/output/` (gitignored), dividido entre `goals.md`, `inbox/`, `experience/` e `cv/`.
+Tudo vai para `skills/in-progress/summarize-cv/output/` (gitignored), dividido entre `goals.md`, `inbox/`, `experience/` e `cv/`.
 
 **Qual é a diferença entre consolidar e adaptar para vaga?**
 A consolidação atualiza `master_cv.md` e `master_cv.en.md` a partir da memória de experiências. A adaptação cria um arquivo isolado `master_cv.<job-slug>.md` sem tocar nos masters.

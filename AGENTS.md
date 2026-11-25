@@ -4,20 +4,19 @@ Regras para qualquer agente de IA (Claude Code, Cursor e ferramentas compatívei
 
 ## Onde vivem as skills
 
-As skills versionadas ficam organizadas em três buckets sob `skills/`:
+As skills versionadas ficam organizadas em dois buckets sob `skills/`:
 
 | Pasta | Uso | Instalada localmente? | No plugin / vitrine? |
 | --- | --- | --- | --- |
-| `skills/portfolio/` | Carreira, CV, cartas e portfólio (skills autorais promovidas) | Sim | Sim |
 | `skills/in-progress/` | Rascunhos autorais em validação no uso diário | Sim | Não |
 | `skills/external/<autor>/<skill>/` | Cópias congeladas de skills de terceiros, organizadas por autor | Sim | Não |
 
-Os scripts em `scripts/` (`install.ps1` e `install.sh`) copiam todas as skills ativas (`portfolio/`, `in-progress/` e `external/`) de forma achatada para `~/.claude/skills` e `~/.cursor/skills`, e falham em caso de colisão de nome.
+Os scripts em `scripts/` (`install.ps1` e `install.sh`) copiam todas as skills ativas (`in-progress/` e `external/`) de forma achatada para `~/.claude/skills` e `~/.cursor/skills`, e falham em caso de colisão de nome.
 
-O plugin do Claude Code em `.claude-plugin/plugin.json` expõe **apenas** as skills autorais promovidas (`skills/portfolio/`). Não use o plugin e o script de cópia apontando para `claude` ao mesmo tempo, para evitar skills duplicadas.
+O plugin do Claude Code em `.claude-plugin/plugin.json` existe, mas o array `skills` está vazio: ainda não há skills autorais promovidas. Use os scripts de instalação para disponibilizar as skills nos agentes.
 
 - Skills sob `_/` (gitignored) são locais e não fazem parte do repositório nem dos scripts de instalação.
-- Outputs pessoais de carreira em `skills/portfolio/summarize-cv/output/` e templates `.docx` em `skills/portfolio/cv-md-to-docx/assets/` são gitignored.
+- Outputs pessoais de carreira em `skills/in-progress/summarize-cv/output/` e templates `.docx` em `skills/in-progress/cv-md-to-docx/assets/` são gitignored.
 
 ## Como criar ou editar skills e documentação
 

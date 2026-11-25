@@ -9,7 +9,7 @@ Fonte: [dictionary/cv/CONTEXT.md](../dictionary/cv/CONTEXT.md) Resolved decision
 Intent claro de otimizar / montar / refrescar CV (“otimizar currículo”, “optimize CV”, “gerar master CV”, …).
 
 - Vaga específica → [adapt-cv-to-job.md](adapt-cv-to-job.md) (não este path sozinho).
-- LinkedIn → stub local `portfolio/_/optimize-linkedin` (não executar aqui).
+- LinkedIn → stub local `in-progress/_/optimize-linkedin` (não executar aqui).
 - Carta → sibling [`cover-letter`](../../cover-letter/SKILL.md) (não executar aqui).
 - ATS → sibling [`resume-ats-optimizer`](../../resume-ats-optimizer/SKILL.md) (não executar aqui).
 
@@ -45,7 +45,7 @@ Para cada repo ainda sem Hybrid Artefact (ou que o usuário queira refrescar):
 3. Invocar / seguir a skill irmã:
 
 ```
-skills/portfolio/git-commits-to-cv/SKILL.md
+skills/in-progress/git-commits-to-cv/SKILL.md
 ```
 
 4. **Não** auto-descobrir repos no filesystem.
@@ -59,4 +59,4 @@ skills/portfolio/git-commits-to-cv/SKILL.md
 
 ## Encerrar o Happy Path
 
-Resumir o que rodou, paths tocados, passos pulados, e itens abertos (goals checklist, métricas placeholder). Se pedirem LinkedIn/estudo/empresas → apontar stubs em `portfolio/_/`. Adapt à vaga → [adapt-cv-to-job.md](adapt-cv-to-job.md).
+Resumir o que rodou, paths tocados, passos pulados, e itens abertos (goals checklist, métricas placeholder). Se pedirem LinkedIn/estudo/empresas → apontar stubs em `in-progress/_/`. Adapt à vaga → [adapt-cv-to-job.md](adapt-cv-to-job.md).

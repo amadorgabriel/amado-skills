@@ -13,7 +13,7 @@ Fonte de decisões: [dictionary/cv/CONTEXT.md](../dictionary/cv/CONTEXT.md) (Res
 ## Path de saída
 
 ```
-skills/portfolio/summarize-cv/output/goals.md
+skills/in-progress/summarize-cv/output/goals.md
 ```
 
 Não inventar stub antes do intake. Não gravar respostas live em `dictionary/cv/CONTEXT.md`.

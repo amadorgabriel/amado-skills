@@ -2,7 +2,7 @@
 
 ## O que faz
 
-Lê o histórico de commits de um único repositório git dentro de uma janela de datas e sintetiza de 5 a 8 bullets no formato XYZ (para currículo) acompanhados de notas STAR (para entrevistas), gravando um artefato híbrido em `skills/portfolio/summarize-cv/output/experience/<company-slug>/<project-slug>.md`.
+Lê o histórico de commits de um único repositório git dentro de uma janela de datas e sintetiza de 5 a 8 bullets no formato XYZ (para currículo) acompanhados de notas STAR (para entrevistas), gravando um artefato híbrido em `skills/in-progress/summarize-cv/output/experience/<company-slug>/<project-slug>.md`.
 
 A skill nunca escreve dentro do repositório analisado, nunca altera `current_cv.md` e nunca assume autoria de commits sem confirmação explícita da lista de e-mails encontrados.
 

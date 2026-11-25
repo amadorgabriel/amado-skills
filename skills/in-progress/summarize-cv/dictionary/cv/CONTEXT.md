@@ -2,9 +2,9 @@
 
 Domain context for the **summarize-cv** skill: goals, inbox, experience memory, master/tailored CVs, and CV pipeline orchestration. User memory lives under the **Summarize CV Output Root**.
 
-Skill: `skills/portfolio/summarize-cv/`
+Skill: `skills/in-progress/summarize-cv/`
 
-**Docs home**: `skills/portfolio/summarize-cv/dictionary/` (see [CONTEXT-MAP.md](../CONTEXT-MAP.md)). Not at the `agentic-ai` repo root. Future CV grilling (`grill-with-docs`) updates `summarize-cv/dictionary/**` only.
+**Docs home**: `skills/in-progress/summarize-cv/dictionary/` (see [CONTEXT-MAP.md](../CONTEXT-MAP.md)). Not at the `agentic-ai` repo root. Future CV grilling (`grill-with-docs`) updates `summarize-cv/dictionary/**` only.
 
 Sibling skills (flat — no mother orchestrator): `git-commits-to-cv`, `cv-md-to-docx`, `cover-letter`, `resume-ats-optimizer`, `optimize-linkedin`.
 
@@ -13,11 +13,11 @@ Sibling skills (flat — no mother orchestrator): `git-commits-to-cv`, `cv-md-to
 ### Orchestration & memory
 
 **Summarize CV**:
-The portfolio skill (`summarize-cv`) that runs the CV pipeline (goals → append → git experience → consolidation → job adapt) using **Reference Modules** and the sibling **`git-commits-to-cv`**. Does **not** execute LinkedIn or study work — redirect to sibling skills.
+The `summarize-cv` skill that runs the CV pipeline (goals → append → git experience → consolidation → job adapt) using **Reference Modules** and the sibling **`git-commits-to-cv`**. Does **not** execute LinkedIn or study work — redirect to sibling skills.
 _Avoid_: Mother skill / Agentic Career umbrella, running LinkedIn or study inside this skill, treating every step as a standalone skill
 
 **Summarize CV Output Root**:
-Directory for this skill's user data: `skills/portfolio/summarize-cv/output/`. Contains `goals.md`, `cv/`, `experience/`, `inbox/` only.
+Directory for this skill's user data: `skills/in-progress/summarize-cv/output/`. Contains `goals.md`, `cv/`, `experience/`, `inbox/` only.
 _Avoid_: Career Output Root (old name), nesting `linkedin/` / `companies/` / `study/` here, scattering CV artefacts per skill without this root
 
 **Experience Memory**:
@@ -127,11 +127,11 @@ Sibling skill — Master/Tailored markdown → send-ready Word `.docx` using loc
 _Avoid_: Treating Word export as a summarize-cv Reference Module; committing personal `.docx` templates to the public repo
 
 **optimize-linkedin**:
-Local-only sibling stub under `portfolio/_/` (gitignored) — profile optimization + post-ideas mode. Owns its `output/` and dictionary. May **read** Summarize CV Output Root.
+Local-only sibling stub under `in-progress/_/` (gitignored) — profile optimization + post-ideas mode. Owns its `output/` and dictionary. May **read** Summarize CV Output Root.
 _Avoid_: Running LinkedIn work inside summarize-cv, committing personal LinkedIn output to the public repo
 
 **cover-letter** / **resume-ats-optimizer**:
-Sibling skills under `portfolio/`. Cover letters and ATS checks. They may read CV and JD material; they do not write masters.
+Sibling skills under `in-progress/`. Cover letters and ATS checks. They may read CV and JD material; they do not write masters.
 _Avoid_: Running letter or ATS work inside summarize-cv
 
 **adapt-cv-to-job**:
@@ -173,13 +173,13 @@ Optional future tracker — unresolved; not required.
 > **Domain expert:** "**Experience Memory** under **Summarize CV Output Root** — `summarize-cv/output/experience/`."
 >
 > **Dev:** "Is there still a mother skill for LinkedIn and study?"
-> **Domain expert:** "No. Tracked siblings: `summarize-cv`, `git-commits-to-cv`, `cv-md-to-docx`, `cover-letter`, `resume-ats-optimizer`. LinkedIn stub lives locally under `portfolio/_/` (gitignored)."
+> **Domain expert:** "No. Tracked siblings: `summarize-cv`, `git-commits-to-cv`, `cv-md-to-docx`, `cover-letter`, `resume-ats-optimizer`. LinkedIn stub lives locally under `in-progress/_/` (gitignored)."
 >
 > **Dev:** "Does Consolidation update portfolio `current_cv.md`?"
 > **Domain expert:** "No. Only `master_cv.md` + `master_cv.en.md`. Portfolio sync is optional **publish-cv**."
 >
 > **Dev:** "User asks for LinkedIn help while in summarize-cv?"
-> **Domain expert:** "Do not execute. Tell them to invoke the local stub under `portfolio/_/optimize-linkedin/`."
+> **Domain expert:** "Do not execute. Tell them to invoke the local stub under `in-progress/_/optimize-linkedin/`."
 >
 > **Dev:** "Where does adapt write, and where is the JD?"
 > **Domain expert:** "`output/cv/master_cv.<job-slug>.md`. Raw JD in **Career Inbox**. Embed **JD Summary** in the Tailored CV."
@@ -195,7 +195,7 @@ Optional future tracker — unresolved; not required.
 
 1. ~~Mother skill = agentic-career~~ → **superseded by decision 19**: flat siblings; CV skill = `summarize-cv`.
 2. **Docs layout** = `dictionary/CONTEXT-MAP.md` + domain folders under each skill (not repo root).
-3. **Summarize CV Output Root** = `skills/portfolio/summarize-cv/output/`; Experience Memory = `output/experience/`. Personal outputs gitignored (no README requirement).
+3. **Summarize CV Output Root** = `skills/in-progress/summarize-cv/output/`; Experience Memory = `output/experience/`. Personal outputs gitignored (no README requirement).
 4. **Target roles** = Fullstack Pleno / Frontend Pleno / correlatos.
 5. **Location** = híbrido/remoto SP, or exterior 100% HO LATAM priority.
 6. **Comp floor** = >10k BRL/mês.

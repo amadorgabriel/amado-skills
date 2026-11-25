@@ -18,3 +18,7 @@ Com a adoção de skills de terceiros (`lesson`, `code-review`, `writing-for-age
 
 - Usuários externos podem instalar o plugin via `/plugin marketplace add amadorgabriel/amado-skills` ou Cursor via `npx skills@latest add amadorgabriel/amado-skills -a cursor` recebendo apenas skills autorais estáveis.
 - O mantenedor continua usando rascunhos e skills externas normalmente no Claude Code e no Cursor via `scripts/install.ps1` e `scripts/install.sh` (evitando rodar plugin e script simultaneamente no Claude Code para não duplicar skills).
+
+## Nota (2026-11-24)
+
+Não há skills autorais promovidas no momento. `.claude-plugin/plugin.json` mantém o plugin, com o array `skills` vazio. As antigas skills de `skills/portfolio/` (e as docs humanas que estavam em `docs/portfolio/`) passaram para `skills/in-progress/` e `docs/in-progress/`. A instalação no dia a dia é feita pelos scripts em `scripts/`. Skills em `in-progress/` podem ter página em `docs/in-progress/` enquanto são validadas; skills em `external/` continuam sem docs até graduarem.

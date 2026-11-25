@@ -16,7 +16,7 @@ Turn one **Scanned repository** into a **Hybrid Artefact** (XYZ bullets + STAR n
 
 Domain source of truth: [dictionary/cv-from-commits/CONTEXT.md](dictionary/cv-from-commits/CONTEXT.md) (see also [summarize-cv CONTEXT-MAP](../summarize-cv/dictionary/CONTEXT-MAP.md)). Do not invent decisions beyond it.
 
-Sibling of **`summarize-cv`**. Categoria: **portfolio** — ver [README da categoria](../README.md).
+Sibling of **`summarize-cv`**. Categoria: **in-progress** — ver [README da categoria](../README.md).
 
 ## When to run
 
@@ -50,7 +50,7 @@ Skill run progress:
 **Output path** (create dirs as needed):
 
 ```
-skills/portfolio/summarize-cv/output/experience/<company-slug>/<project-slug>.md
+skills/in-progress/summarize-cv/output/experience/<company-slug>/<project-slug>.md
 ```
 
 Never write into the scanned repo. Never write `current_cv.md`. Do not write to `portfolio/.specs/` (migrated).
@@ -59,7 +59,7 @@ Never write into the scanned repo. Never write `current_cv.md`. Do not write to 
 
 **Author Email Allowlist** (required — no baked-in defaults):
 
-Ask the user for the email(s) that count as "self" for this run, or read a local config under `portfolio/_/` (gitignored). Typical sources: `git config user.email`, commit history, or a prior artefact's metadata.
+Ask the user for the email(s) that count as "self" for this run, or read a local config under `in-progress/_/` (gitignored). Typical sources: `git config user.email`, commit history, or a prior artefact's metadata.
 
 **Discover** distinct author emails in the scanned repo, then ask about any **not** already on the allowlist before gathering commits. Per-run include/exclude is allowed.
 
