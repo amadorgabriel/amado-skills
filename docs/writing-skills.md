@@ -32,10 +32,10 @@ disable-model-invocation: true # inclua quando for apenas por chamada explícita
 | --- | --- | --- | --- |
 | `skills/<categoria>/<skill>/` | Skill autoral estável | Sim | Sim |
 | `skills/in-progress/<skill>/` | Rascunho autoral em validação | Sim | Não |
-| `skills/external/<autor>/<skill>/` | Skill mantida de terceiros | Sim | Não |
+| `skills/external/<autor>/<skill>/` | Cópia congelada de skill de terceiros | Sim | Não |
 | `skills/_/` (gitignored) | Rascunho privado só da máquina local | Não | Não |
 
-Para skills externas, inclua um `SOURCE.md` curto (descrição e link da origem) e uma entrada em [skills/external/CREDITS.md](../skills/external/CREDITS.md).
+Para skills externas, coloque a cópia congelada em `skills/external/<autor>/<skill>/`, só com os arquivos brutos da skill (por exemplo `SKILL.md`).
 
 ## Documentação por skill promovida
 

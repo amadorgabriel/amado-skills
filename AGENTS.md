@@ -10,7 +10,7 @@ As skills versionadas ficam organizadas em três buckets sob `skills/`:
 | --- | --- | --- | --- |
 | `skills/portfolio/` | Carreira, CV, cartas e portfólio (skills autorais promovidas) | Sim | Sim |
 | `skills/in-progress/` | Rascunhos autorais em validação no uso diário | Sim | Não |
-| `skills/external/<autor>/<skill>/` | Skills de terceiros com crédito em `SOURCE.md` | Sim | Não |
+| `skills/external/<autor>/<skill>/` | Cópias congeladas de skills de terceiros, organizadas por autor | Sim | Não |
 
 Os scripts em `scripts/` (`install.ps1` e `install.sh`) copiam todas as skills ativas (`portfolio/`, `in-progress/` e `external/`) de forma achatada para `~/.claude/skills` e `~/.cursor/skills`, e falham em caso de colisão de nome.
 

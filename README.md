@@ -11,7 +11,7 @@ Skills reutilizáveis para agentes de IA (Claude Code, Cursor e ferramentas comp
 skills/
 ├── portfolio/             # skills autorais promovidas (carreira, CV, cartas, ATS)
 ├── in-progress/           # rascunhos autorais em validação (fora do plugin/vitrine)
-└── external/              # skills de terceiros organizadas por autor + CREDITS.md
+└── external/              # cópias congeladas de skills de terceiros, por autor
 scripts/
 ├── install.ps1            # instalador completo Windows (PowerShell)
 └── install.sh             # instalador completo WSL / Linux / macOS
@@ -53,7 +53,7 @@ O agente pode acionar automaticamente quando o pedido se encaixa, ou você pode 
 
 ## Outros buckets
 
-- **Skills externas ([skills/external/](skills/external/)):** `code-review` (CodeRabbit AI), `lesson` (YudiG12) e `writing-for-agents` (Matt Pocock). Instaladas localmente pelos scripts de cópia, fora do plugin, com licenças e atribuição em [CREDITS.md](skills/external/CREDITS.md).
+- **Skills externas ([skills/external/](skills/external/)):** cópias congeladas em `skills/external/<autor>/<skill>/` (`code-review`, `lesson`, `writing-for-agents`). Instaladas localmente pelos scripts de cópia, fora do plugin.
 - **Em progresso ([skills/in-progress/](skills/in-progress/)):** rascunhos como `weekly-report`, instalados localmente para uso diário até graduarem para a vitrine.
 
 ## Instalação
@@ -103,4 +103,4 @@ AGENTS=cursor scripts/install.sh              # instala só para o Cursor
 
 ## Licença
 
-[MIT](./LICENSE) para o código e skills autorais. Skills em [skills/external/](skills/external/) preservam suas licenças originais por pasta.
+[MIT](./LICENSE)
