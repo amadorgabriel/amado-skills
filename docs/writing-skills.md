@@ -30,16 +30,22 @@ disable-model-invocation: true # inclua quando for apenas por chamada explícita
 
 | Destino | Uso | Instalada localmente? | Vai no plugin e vitrine? |
 | --- | --- | --- | --- |
-| `skills/<categoria>/<skill>/` | Skill autoral estável | Sim | Sim |
+| `skills/<categoria>/<skill>/` | Skill autoral estável (promovida) | Sim | Sim |
 | `skills/in-progress/<skill>/` | Rascunho autoral em validação | Sim | Não |
 | `skills/external/<autor>/<skill>/` | Cópia congelada de skill de terceiros | Sim | Não |
 | `skills/_/` (gitignored) | Rascunho privado só da máquina local | Não | Não |
 
 Para skills externas, coloque a cópia congelada em `skills/external/<autor>/<skill>/`, só com os arquivos brutos da skill (por exemplo `SKILL.md`).
 
-## Documentação por skill promovida
+Hoje não há skills promovidas: as autorais ficam em `skills/in-progress/` até graduarem.
 
-Toda skill promovida em `skills/<categoria>/<skill>/` deve ter uma página humana em `docs/<categoria>/<skill>.md`. Ela orienta quem decide se deve usar a skill, sem repetir o passo a passo de `SKILL.md`, seguindo quatro seções:
+## Documentação por skill
+
+- Skills em `in-progress/` podem ter uma página humana em `docs/in-progress/<skill>.md`.
+- Quando a skill for promovida, mova a página para `docs/<categoria>/<skill>.md`.
+- Skills em `external/` não têm página em `docs/` até graduarem.
+
+A página orienta quem decide se deve usar a skill, sem repetir o passo a passo de `SKILL.md`, seguindo quatro seções:
 
 1. `## O que faz`: tarefa principal e restrição que define o comportamento da skill.
 2. `## Quando usar`: modo de invocação (usuário ou modelo) e fronteira com skills irmãs.
@@ -50,6 +56,6 @@ Toda skill promovida em `skills/<categoria>/<skill>/` deve ter uma página human
 
 1. Mover a pasta de `skills/in-progress/<skill>/` para `skills/<categoria>/<skill>/` e atualizar `skills/<categoria>/README.md`.
 2. Adicionar `"./skills/<categoria>/<skill>"` em `.claude-plugin/plugin.json`.
-3. Criar `docs/<categoria>/<skill>.md` com as quatro seções acima.
-4. Listar a skill no grupo correto (**Usuário** ou **Modelo**) em `README.md` e `skills/<categoria>/README.md`, com link para `SKILL.md` e para a doc.
+3. Mover ou criar `docs/<categoria>/<skill>.md` com as quatro seções acima (saída de `docs/in-progress/`).
+4. Listar a skill no grupo correto (**Usuário** ou **Modelo**) no `README.md` e em `skills/<categoria>/README.md`, com link para `SKILL.md` e para a doc.
 5. Remover a linha de `skills/in-progress/README.md` e reexecutar o instalador local.

@@ -21,7 +21,7 @@ git -C "<repo-path>" rev-parse --is-inside-work-tree
 Definir path de saída:
 
 ```
-skills/portfolio/summarize-cv/output/experience/<company-slug>/<project-slug>.md
+skills/in-progress/summarize-cv/output/experience/<company-slug>/<project-slug>.md
 ```
 
 Se o arquivo já existir → planejar **Smart Merge** (seção 6). Caso contrário → criação limpa a partir do template.

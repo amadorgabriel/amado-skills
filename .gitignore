@@ -1,10 +1,10 @@
 # Local-only skills and stubs (not part of the public showcase)
 skills/_
-skills/portfolio/_/**
+skills/in-progress/_/**
 
-# Portfolio personal outputs
-skills/portfolio/summarize-cv/output/**
-skills/portfolio/cv-md-to-docx/assets/*.docx
+# Personal career outputs
+skills/in-progress/summarize-cv/output/**
+skills/in-progress/cv-md-to-docx/assets/*.docx
 
 # Python bytecode
 **/__pycache__/

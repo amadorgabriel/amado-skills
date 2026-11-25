@@ -13,7 +13,7 @@ disable-model-invocation: true
 
 Copia o **template DOCX** canônico e preenche com o conteúdo de um CV markdown do `summarize-cv`, preservando layout/estilos do modelo (Times New Roman, seções em caixa alta, bullets).
 
-Categoria: **portfolio** — ver [README da categoria](../README.md). Sibling de **`summarize-cv`** (mesmo critério de packaging que `git-commits-to-cv`: script + contrato I/O reutilizável).
+Categoria: **in-progress** — ver [README da categoria](../README.md). Sibling de **`summarize-cv`** (mesmo critério de packaging que `git-commits-to-cv`: script + contrato I/O reutilizável).
 
 ## Formato: `.docx` (não `.docm`)
 

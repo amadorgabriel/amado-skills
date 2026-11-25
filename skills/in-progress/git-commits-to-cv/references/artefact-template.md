@@ -1,6 +1,6 @@
 # Template — Hybrid Memory Artefact
 
-Path: `skills/portfolio/summarize-cv/output/experience/<company-slug>/<project-slug>.md`
+Path: `skills/in-progress/summarize-cv/output/experience/<company-slug>/<project-slug>.md`
 
 Fill every section. Language: **PT-BR only**. Replace placeholders in `<angle brackets>`.
 

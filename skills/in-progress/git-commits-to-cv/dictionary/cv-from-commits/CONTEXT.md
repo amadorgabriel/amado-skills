@@ -2,9 +2,9 @@
 
 Domain context for a skill that turns git commit history into durable, per-project experience memory for a CV — without writing the final CV itself.
 
-Skill: `skills/portfolio/git-commits-to-cv/` (sibling of **summarize-cv**)
+Skill: `skills/in-progress/git-commits-to-cv/` (sibling of **summarize-cv**)
 
-**Hosting note**: this domain context lives at `skills/portfolio/git-commits-to-cv/dictionary/cv-from-commits/CONTEXT.md`. **Experience Memory** is under the **Summarize CV Output Root** (`summarize-cv/output/experience/`). Scanned repositories remain git-history input only.
+**Hosting note**: this domain context lives at `skills/in-progress/git-commits-to-cv/dictionary/cv-from-commits/CONTEXT.md`. **Experience Memory** is under the **Summarize CV Output Root** (`summarize-cv/output/experience/`). Scanned repositories remain git-history input only.
 
 ## Language
 
@@ -17,7 +17,7 @@ The one git repository in scope for a **Skill run** — git history input only. 
 _Avoid_: Workspace, monorepo aggregate, multi-root folder, Experience Memory, Summarize CV Output Root
 
 **Experience Memory**:
-Directory under the **Summarize CV Output Root** where **Memory artefacts** are written: `skills/portfolio/summarize-cv/output/experience/`.
+Directory under the **Summarize CV Output Root** where **Memory artefacts** are written: `skills/in-progress/summarize-cv/output/experience/`.
 _Avoid_: Portfolio Memory Root, `portfolio/.specs`, scanned repository root, nested `.specs/` inside the scanned repo
 
 **Company slug**:
@@ -147,10 +147,10 @@ _Avoid_: Entire repo history by default, unbounded scan without employment or da
 2. **Memory artefact path pattern**: `experience/<company-slug>/<project-slug>.md` under **Summarize CV Output Root** — one artefact per project.
 3. **Consolidation boundary**: this skill does not write the **Master CV** or **Portfolio CV**; **Consolidation** (`summarize-into-doc`) is a later Career Reference Module that reads **XYZ Bullets** → **Master CV** only.
 4. **Rationale**: avoid mixed contexts; ATS-friendly per company; stronger per-project memory.
-5. **Memory artefact root**: **Experience Memory** at `skills/portfolio/summarize-cv/output/experience/`. Full path pattern: `…/experience/<company-slug>/<project-slug>.md`. Scanned repos are git-history input; they are not the write target. (Supersedes the former **Portfolio Memory Root** at `<portfolio-repo>/.specs/`.)
+5. **Memory artefact root**: **Experience Memory** at `skills/in-progress/summarize-cv/output/experience/`. Full path pattern: `…/experience/<company-slug>/<project-slug>.md`. Scanned repos are git-history input; they are not the write target. (Supersedes the former **Portfolio Memory Root** at `<portfolio-repo>/.specs/`.)
 6. **Bullet format = Hybrid**: Final CV-ready bullets are **XYZ Bullets** (Google XYZ: “Accomplished X as measured by Y by doing Z”). The same **Hybrid Artefact** may also include optional **STAR Notes** (Situation, Task, Action, Result) per achievement for interview prep. Do not put long STAR prose into the **Master CV** by default — only **XYZ Bullets** consolidate into the **Master CV**.
 7. **Artefact language = PT-BR only**: **Memory artefacts** (XYZ Bullets and STAR Notes) are written in Brazilian Portuguese. No bilingual sections; no EN flag in v1 of the skill. Unchanged by Career **CV Language Policy (dual-track)** (Career Resolved decision 16): **Master CV EN** is produced at Consolidation by translating XYZ — this skill never rewrites artefacts into English.
-8. **Author identity filter = hybrid**: Commits count as "self" only if the author email is on the **Author Email Allowlist** (user-provided each run or via local config under `portfolio/_/` — no baked-in defaults in the repo). Each **Skill run** discovers emails that appear as commit authors/collaborators in the **Scanned repository** (e.g. `git log --format` / shortlog). Newly discovered emails (not on the allowlist / prior-run config) are **Discovered Collaborator Emails** — present them and **ask the user** whether to include for this run. Per-run override/exclude is allowed.
+8. **Author identity filter = hybrid**: Commits count as "self" only if the author email is on the **Author Email Allowlist** (user-provided each run or via local config under `in-progress/_/` — no baked-in defaults in the repo). Each **Skill run** discovers emails that appear as commit authors/collaborators in the **Scanned repository** (e.g. `git log --format` / shortlog). Newly discovered emails (not on the allowlist / prior-run config) are **Discovered Collaborator Emails** — present them and **ask the user** whether to include for this run. Per-run override/exclude is allowed.
 9. **Metric honesty**: NEVER invent metrics. When Y (measure) in an **XYZ Bullet** lacks evidence in git/PRs/docs, use the **Metric Placeholder** `[MÉTRICA A CONFIRMAR]`. Each **Memory artefact** includes a **Validation Checklist** of items the user must confirm. For top/high-value bullets only: if a strong achievement lacks a number, ask the user interactively during the run. Weaker bullets: omit fabricated Y or use the placeholder without interrupting.
 10. **Target Role Bias**: Configurable per **Skill run**. Default: Fullstack Engineer Pleno (~5 years experience) — when summarizing commits, prioritize and phrase evidence that supports full-stack ownership (API, data, auth, cloud, FE) without inventing work that is not in the git history. Other allowed modes: neutral, Frontend Pleno.
 11. **Skill invocation = explicit only**: The skill must set `disable-model-invocation: true`. It runs only when the user explicitly asks — e.g. generate CV experience from a repo, commits → experience bullets, or STAR/XYZ from project X. Do **not** auto-run when the user is casually discussing CV/portfolio.

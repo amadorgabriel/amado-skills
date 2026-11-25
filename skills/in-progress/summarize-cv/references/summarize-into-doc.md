@@ -14,11 +14,11 @@ Fonte: [dictionary/cv/CONTEXT.md](../dictionary/cv/CONTEXT.md) (Resolved 9, 16).
 
 | Artefacto | Path |
 | --- | --- |
-| Master CV (PT) | `skills/portfolio/summarize-cv/output/cv/master_cv.md` |
-| Master CV EN | `skills/portfolio/summarize-cv/output/cv/master_cv.en.md` |
-| Experience Memory (read) | `skills/portfolio/summarize-cv/output/experience/**/*.md` |
-| Goals (read, soft) | `skills/portfolio/summarize-cv/output/goals.md` |
-| **Confirmed Metrics** (read) | `skills/portfolio/summarize-cv/output/cv/confirmed_metrics.md` |
+| Master CV (PT) | `skills/in-progress/summarize-cv/output/cv/master_cv.md` |
+| Master CV EN | `skills/in-progress/summarize-cv/output/cv/master_cv.en.md` |
+| Experience Memory (read) | `skills/in-progress/summarize-cv/output/experience/**/*.md` |
+| Goals (read, soft) | `skills/in-progress/summarize-cv/output/goals.md` |
+| **Confirmed Metrics** (read) | `skills/in-progress/summarize-cv/output/cv/confirmed_metrics.md` |
 
 ### Confirmed Metrics tem precedência
 

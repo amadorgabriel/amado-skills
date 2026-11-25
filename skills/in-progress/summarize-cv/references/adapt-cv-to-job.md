@@ -8,12 +8,12 @@ Fonte: [dictionary/cv/CONTEXT.md](../dictionary/cv/CONTEXT.md) (Resolved 14, 19)
 
 | Artefact | Path |
 | --- | --- |
-| Master CV (PT) | `skills/portfolio/summarize-cv/output/cv/master_cv.md` |
-| Master CV EN | `skills/portfolio/summarize-cv/output/cv/master_cv.en.md` |
-| Tailored CV | `skills/portfolio/summarize-cv/output/cv/master_cv.<job-slug>.md` |
-| Experience Memory | `skills/portfolio/summarize-cv/output/experience/**/*.md` |
-| Goals | `skills/portfolio/summarize-cv/output/goals.md` |
-| Career Inbox (JD) | `skills/portfolio/summarize-cv/output/inbox/` |
+| Master CV (PT) | `skills/in-progress/summarize-cv/output/cv/master_cv.md` |
+| Master CV EN | `skills/in-progress/summarize-cv/output/cv/master_cv.en.md` |
+| Tailored CV | `skills/in-progress/summarize-cv/output/cv/master_cv.<job-slug>.md` |
+| Experience Memory | `skills/in-progress/summarize-cv/output/experience/**/*.md` |
+| Goals | `skills/in-progress/summarize-cv/output/goals.md` |
+| Career Inbox (JD) | `skills/in-progress/summarize-cv/output/inbox/` |
 
 ## Preconditions
 

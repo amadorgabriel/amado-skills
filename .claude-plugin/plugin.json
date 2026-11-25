@@ -16,11 +16,5 @@
     "resume",
     "cover-letter"
   ],
-  "skills": [
-    "./skills/portfolio/cover-letter",
-    "./skills/portfolio/cv-md-to-docx",
-    "./skills/portfolio/git-commits-to-cv",
-    "./skills/portfolio/resume-ats-optimizer",
-    "./skills/portfolio/summarize-cv"
-  ]
+  "skills": []
 }

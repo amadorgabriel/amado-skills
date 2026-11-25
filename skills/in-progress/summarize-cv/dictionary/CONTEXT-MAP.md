@@ -1,10 +1,10 @@
 # Context Map — Summarize CV
 
-Glossários de domínio da skill **`summarize-cv`**. Vivem em `skills/portfolio/summarize-cv/dictionary/`.
+Glossários de domínio da skill **`summarize-cv`**. Vivem em `skills/in-progress/summarize-cv/dictionary/`.
 
-Dados do usuário (Summarize CV Output Root): `skills/portfolio/summarize-cv/output/` (gitignored).
+Dados do usuário (Summarize CV Output Root): `skills/in-progress/summarize-cv/output/` (gitignored).
 
-Skills irmãs (portfolio): `git-commits-to-cv`, `cv-md-to-docx`, `cover-letter`, `resume-ats-optimizer` (versionadas); `optimize-linkedin` (stub local em `portfolio/_/`, gitignored) — ver [README da categoria](../../README.md).
+Skills irmãs: `git-commits-to-cv`, `cv-md-to-docx`, `cover-letter`, `resume-ats-optimizer` (versionadas); `optimize-linkedin` (stub local em `in-progress/_/`, gitignored) — ver [README da categoria](../../README.md).
 
 ## Contexts (this skill)
 
@@ -13,7 +13,7 @@ Skills irmãs (portfolio): `git-commits-to-cv`, `cv-md-to-docx`, `cover-letter`,
 ## Sibling dictionaries (not under this folder)
 
 - [CV from Commits](../../git-commits-to-cv/dictionary/cv-from-commits/CONTEXT.md) — owned by `git-commits-to-cv`
-- LinkedIn — local stub under `portfolio/_/optimize-linkedin/` (gitignored)
+- LinkedIn — local stub under `in-progress/_/optimize-linkedin/` (gitignored)
 
 ## Relationships
 
@@ -22,7 +22,7 @@ Skills irmãs (portfolio): `git-commits-to-cv`, `cv-md-to-docx`, `cover-letter`,
 - **Consolidation** (`summarize-into-doc`) → **Master CV** + **Master CV EN**
 - **adapt-cv-to-job** (Reference Module) → **Tailored CV** alongside masters; JD from **Career Inbox**
 - **cv-md-to-docx** reads `output/cv/master_cv*.md` and writes send-ready `.docx` next to them; template lives in `cv-md-to-docx/assets/`
-- **optimize-linkedin** (local stub under `portfolio/_/`) may **read** `summarize-cv/output/**`; write only under its own `output/`
+- **optimize-linkedin** (local stub under `in-progress/_/`) may **read** `summarize-cv/output/**`; write only under its own `output/`
 - **cover-letter** e **resume-ats-optimizer** leem CV/JD quando o usuário pedir carta ou ATS; não escrevem masters
 - LinkedIn / cover letter / ATS / Word-export requests are **not** executed inside `summarize-cv` — invoke the sibling skill
 
@@ -30,8 +30,8 @@ Skills irmãs (portfolio): `git-commits-to-cv`, `cv-md-to-docx`, `cover-letter`,
 
 | Artefact | Path |
 | --- | --- |
-| Skill | `skills/portfolio/summarize-cv/` |
-| Output root | `skills/portfolio/summarize-cv/output/` |
+| Skill | `skills/in-progress/summarize-cv/` |
+| Output root | `skills/in-progress/summarize-cv/output/` |
 | Experience | `.../output/experience/` |
 | Inbox | `.../output/inbox/` |
 | Masters | `.../output/cv/master_cv.md`, `master_cv.en.md` |
