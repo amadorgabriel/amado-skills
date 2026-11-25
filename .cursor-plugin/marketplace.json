@@ -1,0 +1,21 @@
+{
+  "name": "amadorgabriel",
+  "owner": {
+    "name": "Gabriel Rodrigues"
+  },
+  "metadata": {
+    "description": "Marketplace pessoal de plugins de Gabriel Rodrigues para Claude Code e Cursor."
+  },
+  "plugins": [
+    {
+      "name": "diary",
+      "source": "plugins/diary",
+      "description": "Diário de trabalho anonimizado a partir das sessões do agente (skills diary e privacy-guardrail)."
+    },
+    {
+      "name": "job",
+      "source": "plugins/job",
+      "description": "Busca de emprego: pipeline de CV, commits para CV, exportação Word, cover letter e ATS."
+    }
+  ]
+}

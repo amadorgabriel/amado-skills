@@ -1,0 +1,13 @@
+{
+  "name": "diary",
+  "version": "0.1.0",
+  "description": "Daily work diary from agent sessions, anonymized by a privacy guardrail (roles instead of names, no company names, no LGPD data).",
+  "author": {
+    "name": "Gabriel Rodrigues",
+    "url": "https://github.com/amadorgabriel"
+  },
+  "homepage": "https://github.com/amadorgabriel/amado-skills/tree/main/plugins/diary",
+  "repository": "https://github.com/amadorgabriel/amado-skills",
+  "license": "MIT",
+  "keywords": ["diary", "journal", "work-log", "privacy", "lgpd", "star", "xyz"]
+}

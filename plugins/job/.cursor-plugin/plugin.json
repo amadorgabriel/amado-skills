@@ -1,0 +1,16 @@
+{
+  "name": "job",
+  "displayName": "Job",
+  "version": "0.1.0",
+  "description": "Job search toolkit: CV pipeline (goals, experience, PT/EN masters, tailored CVs), git commits to CV bullets, Word export, cover letters and ATS checks. Personal data lives in ~/.job/.",
+  "author": {
+    "name": "Gabriel Rodrigues",
+    "url": "https://github.com/amadorgabriel"
+  },
+  "homepage": "https://github.com/amadorgabriel/amado-skills/tree/main/plugins/job",
+  "repository": "https://github.com/amadorgabriel/amado-skills",
+  "license": "MIT",
+  "keywords": ["career", "cv", "resume", "cover-letter", "ats", "job-search"],
+  "category": "productivity",
+  "tags": ["career", "cv", "job-search"]
+}

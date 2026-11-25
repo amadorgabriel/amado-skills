@@ -1,25 +1,30 @@
 # Documentação
 
-As skills de agente **não** ficam nesta pasta. A fonte (o `SKILL.md` que o agente executa) vive em `skills/`. Aqui está a documentação humana do repositório e das skills em validação.
+As skills de agente **não** ficam nesta pasta. A fonte (o `SKILL.md` que o agente executa) vive em `plugins/` e `skills/`. Aqui está a documentação humana do repositório e das skills.
 
 ## Onde está cada coisa
 
-- **Fonte da skill:** `skills/<bucket>/.../SKILL.md`
+- **Fonte da skill:**
+  - Publicadas em plugins: `plugins/<plugin>/skills/<skill>/`
   - Rascunhos em validação: `skills/in-progress/<skill>/`
   - Skills de terceiros: `skills/external/<autor>/<skill>/`
-  - Skills promovidas: `skills/<categoria>/<skill>/` (ainda não há nenhuma)
-- **Docs humanas:** `docs/<categoria>/<skill>.md`
-  - Skills em `in-progress/` podem ter página em [docs/in-progress/](./in-progress/).
-  - Skills em `external/` **não** têm página em `docs/` até graduarem para uma categoria estável (veja o checklist em [writing-skills.md](./writing-skills.md)).
-  - Quando uma skill for promovida, a doc acompanha em `docs/<categoria>/`.
+- **Docs humanas:** `docs/<plugin>/<skill>.md` para skills publicadas; `docs/in-progress/<skill>.md` opcional para rascunhos; skills externas não têm página.
 - **ADRs:** [docs/adr/](./adr/) registra decisões de estrutura e instalação.
+- **Guia de autoria:** [writing-skills.md](./writing-skills.md).
 
-## Skills em progresso
+## Plugin diary
 
 | Skill | Doc |
 | --- | --- |
-| [`summarize-cv`](../skills/in-progress/summarize-cv/SKILL.md) | [in-progress/summarize-cv.md](./in-progress/summarize-cv.md) |
-| [`git-commits-to-cv`](../skills/in-progress/git-commits-to-cv/SKILL.md) | [in-progress/git-commits-to-cv.md](./in-progress/git-commits-to-cv.md) |
-| [`cv-md-to-docx`](../skills/in-progress/cv-md-to-docx/SKILL.md) | [in-progress/cv-md-to-docx.md](./in-progress/cv-md-to-docx.md) |
-| [`cover-letter`](../skills/in-progress/cover-letter/SKILL.md) | [in-progress/cover-letter.md](./in-progress/cover-letter.md) |
-| [`resume-ats-optimizer`](../skills/in-progress/resume-ats-optimizer/SKILL.md) | [in-progress/resume-ats-optimizer.md](./in-progress/resume-ats-optimizer.md) |
+| [`diary`](../plugins/diary/skills/diary/SKILL.md) | [diary/diary.md](./diary/diary.md) |
+| [`privacy-guardrail`](../plugins/diary/skills/privacy-guardrail/SKILL.md) | [diary/privacy-guardrail.md](./diary/privacy-guardrail.md) |
+
+## Plugin job
+
+| Skill | Doc |
+| --- | --- |
+| [`summarize-cv`](../plugins/job/skills/summarize-cv/SKILL.md) | [job/summarize-cv.md](./job/summarize-cv.md) |
+| [`git-commits-to-cv`](../plugins/job/skills/git-commits-to-cv/SKILL.md) | [job/git-commits-to-cv.md](./job/git-commits-to-cv.md) |
+| [`cv-md-to-docx`](../plugins/job/skills/cv-md-to-docx/SKILL.md) | [job/cv-md-to-docx.md](./job/cv-md-to-docx.md) |
+| [`cover-letter`](../plugins/job/skills/cover-letter/SKILL.md) | [job/cover-letter.md](./job/cover-letter.md) |
+| [`resume-ats-optimizer`](../plugins/job/skills/resume-ats-optimizer/SKILL.md) | [job/resume-ats-optimizer.md](./job/resume-ats-optimizer.md) |

@@ -1,6 +1,6 @@
 # Guia de autoria de skills e documentação
 
-Guia prático de manutenção para criar, editar e promover skills neste repositório. Para princípios de escrita para agentes (ponteiros de contexto, carga de contexto vs carga cognitiva, divulgação progressiva e corte de instruções redundantes), consulte a skill vendored [`writing-for-agents`](../skills/external/mattpocock/writing-for-agents/SKILL.md) e [`SKILL-MECHANICS.md`](../skills/external/mattpocock/writing-for-agents/SKILL-MECHANICS.md).
+Guia prático de manutenção para criar, editar e publicar skills neste repositório. Para princípios de escrita para agentes (ponteiros de contexto, carga de contexto vs carga cognitiva, divulgação progressiva e corte de instruções redundantes), consulte a skill vendored [`writing-for-agents`](../skills/external/mattpocock/writing-for-agents/SKILL.md) e [`SKILL-MECHANICS.md`](../skills/external/mattpocock/writing-for-agents/SKILL-MECHANICS.md).
 
 ## Anatomia mínima de uma skill
 
@@ -17,6 +17,7 @@ disable-model-invocation: true # inclua quando for apenas por chamada explícita
 
 - **Frontmatter obrigatório:** `name` e `description` como strings válidas em YAML, com `name` idêntico ao nome da pasta da skill.
 - **Arquivos irmãos:** coloque referências extensas, templates ou estilos em arquivos separados (`STYLE.md`, `references/`, `scripts/`) e aponte para eles a partir de `SKILL.md`, carregando apenas quando o fluxo precisar.
+- **Dados do usuário:** nunca dentro da pasta da skill. Plugins são copiados para um cache que é substituído a cada atualização; use uma pasta em `~` (`~/.diary/`, `~/.job/`).
 - **Estilo:** siga a regra sem travessão (U+2014) definida em [AGENTS.md](../AGENTS.md).
 
 ## Escolha de invocação
@@ -28,22 +29,35 @@ disable-model-invocation: true # inclua quando for apenas por chamada explícita
 
 ## Onde colocar cada skill
 
-| Destino | Uso | Instalada localmente? | Vai no plugin e vitrine? |
-| --- | --- | --- | --- |
-| `skills/<categoria>/<skill>/` | Skill autoral estável (promovida) | Sim | Sim |
-| `skills/in-progress/<skill>/` | Rascunho autoral em validação | Sim | Não |
-| `skills/external/<autor>/<skill>/` | Cópia congelada de skill de terceiros | Sim | Não |
-| `skills/_/` (gitignored) | Rascunho privado só da máquina local | Não | Não |
+| Destino | Uso | Exportada em plugin? |
+| --- | --- | --- |
+| `plugins/<plugin>/skills/<skill>/` | Skill autoral publicada | Sim |
+| `skills/in-progress/<skill>/` | Rascunho autoral em validação | Não |
+| `skills/external/<autor>/<skill>/` | Cópia congelada de skill de terceiros | Nunca |
+| `skills/_/` (gitignored) | Rascunho privado só da máquina local | Não |
 
 Para skills externas, coloque a cópia congelada em `skills/external/<autor>/<skill>/`, só com os arquivos brutos da skill (por exemplo `SKILL.md`).
 
-Hoje não há skills promovidas: as autorais ficam em `skills/in-progress/` até graduarem.
+## Anatomia de um plugin
+
+```text
+plugins/<plugin>/
+├── .claude-plugin/plugin.json   # name, version, description, author, repository, license, keywords
+├── .cursor-plugin/plugin.json   # mesmos campos + displayName, category, tags
+├── README.md                    # tabela das skills do plugin
+├── skills/<skill>/SKILL.md      # descobertas automaticamente
+└── hooks/hooks.json             # opcional
+```
+
+- O `name` do plugin é igual ao nome da pasta e aparece nos dois `marketplace.json` da raiz.
+- Links relativos só podem apontar para dentro do próprio plugin.
+- Suba `version` nos dois `plugin.json` quando o comportamento de uma skill mudar.
 
 ## Documentação por skill
 
-- Skills em `in-progress/` podem ter uma página humana em `docs/in-progress/<skill>.md`.
-- Quando a skill for promovida, mova a página para `docs/<categoria>/<skill>.md`.
-- Skills em `external/` não têm página em `docs/` até graduarem.
+- Skills em plugins têm página humana em `docs/<plugin>/<skill>.md`.
+- Skills em `in-progress/` podem ter página em `docs/in-progress/<skill>.md`.
+- Skills em `external/` não têm página em `docs/`.
 
 A página orienta quem decide se deve usar a skill, sem repetir o passo a passo de `SKILL.md`, seguindo quatro seções:
 
@@ -52,10 +66,10 @@ A página orienta quem decide se deve usar a skill, sem repetir o passo a passo 
 3. `## Dúvidas comuns`: perguntas reais e diretas sobre limites, saídas ou pré-requisitos.
 4. `## Está funcionando se`: sinais observáveis no resultado sem precisar abrir `SKILL.md`.
 
-## Checklist de promoção (de `in-progress/` para categoria estável)
+## Checklist de publicação (de `in-progress/` para um plugin)
 
-1. Mover a pasta de `skills/in-progress/<skill>/` para `skills/<categoria>/<skill>/` e atualizar `skills/<categoria>/README.md`.
-2. Adicionar `"./skills/<categoria>/<skill>"` em `.claude-plugin/plugin.json`.
-3. Mover ou criar `docs/<categoria>/<skill>.md` com as quatro seções acima (saída de `docs/in-progress/`).
-4. Listar a skill no grupo correto (**Usuário** ou **Modelo**) no `README.md` e em `skills/<categoria>/README.md`, com link para `SKILL.md` e para a doc.
-5. Remover a linha de `skills/in-progress/README.md` e reexecutar o instalador local.
+1. Mover a pasta de `skills/in-progress/<skill>/` para `plugins/<plugin>/skills/<skill>/` (ou criar o plugin, com os dois `plugin.json`, e registrá-lo nos dois `marketplace.json`).
+2. Garantir que a skill não grava dados dentro da própria pasta e não tem links para fora do plugin.
+3. Mover ou criar `docs/<plugin>/<skill>.md` com as quatro seções acima.
+4. Listar a skill no `README.md` do plugin e no `README.md` da raiz, com link para `SKILL.md` e para a doc.
+5. Subir `version` nos dois `plugin.json`, rodar `claude plugin validate .` e reexecutar o instalador.
