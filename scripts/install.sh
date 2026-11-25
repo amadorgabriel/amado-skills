@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Copies active skills from skills/ into Claude Code and Cursor user skills folders. Safe to re-run.
+# Discovers promoted categories, in-progress/, and external/<author>/<skill>/. Skips _/ and deprecated/.
 # usage:
 #   scripts/install.sh [skill ...]
 #   AGENTS=cursor scripts/install.sh lesson
@@ -10,17 +11,46 @@ SKILLS_ROOT="$R/skills"
 AGENTS_CSV="${AGENTS:-claude,cursor}"
 
 declare -A SKILL_PATHS=()
+declare -A SKILL_CATEGORIES=()
+
+register_skill() {
+  local name="$1"
+  local category="$2"
+  local dir="$3"
+  if [ -n "${SKILL_PATHS[$name]:-}" ]; then
+    echo "error: skill name collision for '$name': '${SKILL_PATHS[$name]}' conflicts with '$dir'" >&2
+    exit 1
+  fi
+  SKILL_PATHS["$name"]="$dir"
+  SKILL_CATEGORIES["$name"]="$category"
+}
+
 for category_dir in "$SKILLS_ROOT"/*; do
   [ -d "$category_dir" ] || continue
   category="$(basename "$category_dir")"
-  case "$category" in _) continue ;; esac
-  for skill_dir in "$category_dir"/*; do
-    [ -d "$skill_dir" ] || continue
-    name="$(basename "$skill_dir")"
-    [ "$name" = "_" ] && continue
-    [ -f "$skill_dir/SKILL.md" ] || continue
-    SKILL_PATHS["$name"]="$skill_dir"
-  done
+  case "$category" in _|deprecated) continue ;; esac
+  if [ "$category" = "external" ]; then
+    for author_dir in "$category_dir"/*; do
+      [ -d "$author_dir" ] || continue
+      author="$(basename "$author_dir")"
+      [ "$author" = "_" ] && continue
+      for skill_dir in "$author_dir"/*; do
+        [ -d "$skill_dir" ] || continue
+        name="$(basename "$skill_dir")"
+        [ "$name" = "_" ] && continue
+        [ -f "$skill_dir/SKILL.md" ] || continue
+        register_skill "$name" "external/$author" "$skill_dir"
+      done
+    done
+  else
+    for skill_dir in "$category_dir"/*; do
+      [ -d "$skill_dir" ] || continue
+      name="$(basename "$skill_dir")"
+      [ "$name" = "_" ] && continue
+      [ -f "$skill_dir/SKILL.md" ] || continue
+      register_skill "$name" "$category" "$skill_dir"
+    done
+  fi
 done
 
 if [ $# -eq 0 ]; then
@@ -47,6 +77,7 @@ for agent in "${agent_list[@]}"; do
   mkdir -p "$dest_root"
   for s in "${selected[@]}"; do
     src="${SKILL_PATHS[$s]}"
+    cat_label="${SKILL_CATEGORIES[$s]}"
     dst="$dest_root/$s"
     mkdir -p "$dst"
     if command -v rsync >/dev/null 2>&1; then
@@ -54,7 +85,7 @@ for agent in "${agent_list[@]}"; do
     else
       cp -R "$src/." "$dst/"
     fi
-    echo "installed $s -> $dst"
+    echo "installed $s ($cat_label) -> $dst"
   done
 done
 

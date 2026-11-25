@@ -4,22 +4,31 @@ Regras para qualquer agente de IA (Claude Code, Cursor e ferramentas compatívei
 
 ## Onde vivem as skills
 
-As skills versionadas ficam em `skills/<categoria>/<nome-da-skill>/SKILL.md`:
+As skills versionadas ficam organizadas em três buckets sob `skills/`:
 
-| Pasta | Uso |
-| --- | --- |
-| `skills/engineering/` | Desenvolvimento de software |
-| `skills/education/` | Aulas visuais de um conceito técnico |
-| `skills/portfolio/` | Carreira, CV, LinkedIn e portfólio |
+| Pasta | Uso | Instalada localmente? | No plugin / vitrine? |
+| --- | --- | --- | --- |
+| `skills/portfolio/` | Carreira, CV, cartas e portfólio (skills autorais promovidas) | Sim | Sim |
+| `skills/in-progress/` | Rascunhos autorais em validação no uso diário | Sim | Não |
+| `skills/external/<autor>/<skill>/` | Cópias congeladas de skills de terceiros, organizadas por autor | Sim | Não |
 
-Os scripts em `scripts/` copiam essas skills para `~/.claude/skills` e `~/.cursor/skills`, onde Claude Code e Cursor carregam as skills globalmente em qualquer projeto.
+Os scripts em `scripts/` (`install.ps1` e `install.sh`) copiam todas as skills ativas (`portfolio/`, `in-progress/` e `external/`) de forma achatada para `~/.claude/skills` e `~/.cursor/skills`, e falham em caso de colisão de nome.
 
-- Skills sob `_/` (gitignored) são locais e não fazem parte da vitrine pública.
+O plugin do Claude Code em `.claude-plugin/plugin.json` expõe **apenas** as skills autorais promovidas (`skills/portfolio/`). Não use o plugin e o script de cópia apontando para `claude` ao mesmo tempo, para evitar skills duplicadas.
+
+- Skills sob `_/` (gitignored) são locais e não fazem parte do repositório nem dos scripts de instalação.
 - Outputs pessoais de carreira em `skills/portfolio/summarize-cv/output/` e templates `.docx` em `skills/portfolio/cv-md-to-docx/assets/` são gitignored.
+
+## Como criar ou editar skills e documentação
+
+Antes de criar uma nova skill, editar um `SKILL.md` ou atualizar `AGENTS.md`:
+
+- Leia o guia de manutenção do repositório em [docs/writing-skills.md](./docs/writing-skills.md).
+- Consulte a referência vendored [skills/external/mattpocock/writing-for-agents/SKILL.md](./skills/external/mattpocock/writing-for-agents/SKILL.md) e [SKILL-MECHANICS.md](./skills/external/mattpocock/writing-for-agents/SKILL-MECHANICS.md).
 
 ## Skills pessoais de engenharia fora do repo
 
-Estas skills ficam apenas localmente em `~/.cursor/skills/` (ou `~/.claude/skills/`): `grilling`, `domain-modeling`, `grill-with-docs`, `tlc-spec-driven` e `autofix`. `code-review` continua versionada em `skills/engineering/`.
+Estas skills ficam apenas localmente em `~/.cursor/skills/` (ou `~/.claude/skills/`): `grilling`, `domain-modeling`, `grill-with-docs`, `tlc-spec-driven` e `autofix`. `code-review` fica versionada em `skills/external/coderabbitai/code-review/`.
 
 ## Regra de estilo: sem travessão (em-dash)
 

@@ -1,0 +1,26 @@
+{
+  "name": "amado-skills",
+  "version": "1.0.0",
+  "description": "Reusable AI agent skills by Gabriel Rodrigues for career, CV, and portfolio workflows.",
+  "author": {
+    "name": "Gabriel Rodrigues",
+    "url": "https://github.com/amadorgabriel"
+  },
+  "repository": "https://github.com/amadorgabriel/amado-skills",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "portfolio",
+    "career",
+    "cv",
+    "resume",
+    "cover-letter"
+  ],
+  "skills": [
+    "./skills/portfolio/cover-letter",
+    "./skills/portfolio/cv-md-to-docx",
+    "./skills/portfolio/git-commits-to-cv",
+    "./skills/portfolio/resume-ats-optimizer",
+    "./skills/portfolio/summarize-cv"
+  ]
+}
